@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import path from 'path';
 import IntlWrapper from '../client/modules/Intl/IntlWrapper';
+import dummyData from './dummyData';
 
 // Initialize the Express App
 const app = new Express();
@@ -59,7 +60,8 @@ if (process.env.NODE_ENV !== 'test') {
       throw error;
     }
 
-    // TODO feed some dummy data in DB.
+    // feed some dummy data in DB.
+    dummyData();
   });
 }
 
