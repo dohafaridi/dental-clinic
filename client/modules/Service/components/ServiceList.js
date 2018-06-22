@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import ServiceListItem from './ServiceListItem/ServiceListItem';
 
 const ServiceList = ({ services }) =>
-  (services ? (
+  (!services ? (
     <div className="ServiceList">
       {services.map(service => (
         <ServiceListItem key={service.cuid} service={service} />

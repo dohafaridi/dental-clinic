@@ -27,5 +27,6 @@ export default {
     	  =1 {has # comment}
     	  other {has # comments}
     	} as of {date}`,
+    appRights: '(C) 2018 All rights reserved ',
   },
 };

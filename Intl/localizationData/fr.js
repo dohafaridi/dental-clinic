@@ -27,5 +27,6 @@ export default {
   		  =1 {has # comment}
   		  other {has # comments}
   		} as of {date} (in real app this would be translated to French)`,
+    appRights: '(C) 2018 tous droits réservés ',
   },
 };

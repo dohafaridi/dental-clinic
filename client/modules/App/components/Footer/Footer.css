@@ -1,17 +1,68 @@
-.footer{
+.Footer {
+  padding-bottom: 124px;
+  padding-top: 122px;
+  background: #000;
+}
+
+.Footer ul {
+  list-style-type: none;
+}
+
+.Footer ul {
+  list-style-type: none;
   text-align: center;
-  padding: 56px 0;
-  background-size: cover;
 }
 
-.footer p{
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  color: #FFF;
+.Footer li {
+  display: inline-block;
+  color: #d5d5d5;
 }
 
-.footer a{
-  color: #FFF;
+.Footer p {
+  margin: 0;
+  padding: 0;
+  color: #d7d7d7;
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 100px;
+}
+
+.Footer span a {
+  cursor: pointer;
+  color: #ffff00;
+}
+
+.Footer span a:hover {
+  color: #ffff00;
+}
+
+.Footer li a {
+  color: #d5d5d5;
+  padding: 20px;
+  display: block;
+  font-size: 13.34px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.Footer__logo {
+  text-align: center;
+}
+
+.Footer p a {
+  padding: 0;
+}
+
+.Footer li a:hover {
+  color: #ffff00;
   text-decoration: none;
-  font-weight: 700;
+}
+
+.Footer span a:hover {
+  color: white;
+  text-decoration: underline;
 }

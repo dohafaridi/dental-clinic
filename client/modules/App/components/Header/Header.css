@@ -1,51 +1,58 @@
-.header {
-  background: #eee url('../../header-bk.png') center;
+.Header {
+  padding: 10px 0;
+  background: #000;
   background-size: cover;
-  border-bottom: 1px solid #ccc;
-}
-
-.content {
+  z-index: 100;
   width: 100%;
-  max-width: 980px;
-  margin: auto;
-  padding: 64px 16px;
-  overflow: auto;
 }
 
-.site-title {
-  font-weight: 300;
-  font-size: 42px;
-  float: left;
+.Header__icons {
+  float: right;
+  color: white;
+  padding: 20px 0;
+  position: relative;
 }
 
-.site-title a {
-  text-decoration: none;
-  color: #FFF;
+.Header__icons a {
+  margin-left: 25px;
 }
 
-.language-switcher {
-  background: rgba(0, 0, 0, 0.1);
+.Header__icons i {
+  font-size: 18px;
+  padding-top: 9px;
+  color: white;
 }
 
-.language-switcher ul {
-  list-style: none;
-  width: 980px;
-  margin: auto;
-  text-align: right;
+.Header__icons i:hover,
+.Header__icons--language-switcher li:hover,
+.Header__icons--language-switcher__active {
+  color: yellow;
 }
 
-.language-switcher li {
+.Header__icons--social {
   display: inline-block;
-  margin: 10px;
-  padding: 5px;
+}
+
+.Header__icons--language-switcher {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.Header__icons--language-switcher li {
   cursor: pointer;
-  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0 5px;
 }
 
-.language-switcher li:first-child {
-  color: rgba(255, 255, 255, 0.7);
+.Header__icons--slide-menu {
+  cursor: pointer;
 }
 
-.selected {
-  border-bottom: 1px solid #fff;
+.Header__icons--slide-menu i {
+  font-size: 28px;
+  margin-left: 20px;
+  float: right;
+  margin-top: -5px;
 }

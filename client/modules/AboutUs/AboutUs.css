@@ -1,0 +1,25 @@
+.AboutUs {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 78px;
+  padding-bottom: 108px;
+  text-align: center;
+  background: white;
+}
+
+.AboutUs__tilte {
+  font-size: 74px;
+  font-weight: 100;
+  padding-bottom: 48px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.56);
+  font-family: "Montserrat", sans-serif;
+}
+
+.AboutUs__content {
+  font-size: 23px;
+  line-height: 45px;
+  padding-bottom: 53px;
+  color: rgba(0, 0, 0, 0.56);
+}

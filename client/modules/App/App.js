@@ -1,9 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-// Import Style
-import styles from './App.css';
-
 // Import Components
 import Helmet from 'react-helmet';
 import Header from './components/Header/Header';
@@ -52,7 +49,7 @@ export class App extends Component {
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
             intl={this.props.intl}
           />
-          <div className={styles.container}>
+          <div className="container">
             {this.props.children}
           </div>
           <Footer />
