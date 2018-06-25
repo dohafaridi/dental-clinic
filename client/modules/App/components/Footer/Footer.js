@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 // Import Style
@@ -13,30 +14,30 @@ const Footer = () => {
           <div className={styles.Footer__links}>
             <ul>
               <li>
-                <a href="/">Home</a>
+                <Link to="/"><FormattedMessage id="homeLabel" /></Link>
               </li>
               <li className="semicolon">:</li>
               <li>
-                <a href="/">services</a>
+                <Link to="/services"><FormattedMessage id="serviceLabel" /></Link>
               </li>
             </ul>
           </div>
           <p className={styles.Footer__copyright}>
             <FormattedMessage id="appRights" />
             <span>
-              <a
-                href="https://github.com/dohafaridi/dental-clinic"
+              <Link
+                to="https://github.com/dohafaridi/dental-clinic"
                 target="_blank"
               >
                 Doha Faridi
-              </a>
+              </Link>
             </span>
           </p>
         </div>
         <div className={styles.Footer__logo}>
-          <a href="/">
+          <Link to="/">
             <img src={logo} alt="footer-logo" />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

@@ -1,0 +1,41 @@
+.ServiceListItem {
+  padding: 20px 0;
+}
+
+.ServiceListItem__title,
+.ServiceListItem__title a {
+  color: #000;
+  margin: 0;
+  font-size: 23px;
+  font-weight: 600;
+  text-align: left;
+  padding-bottom: 18px;
+}
+
+.ServiceListItem__content {
+  color: #b0b0b0;
+  font-size: 17px;
+  line-height: 2;
+}
+
+.ServiceListItem__readmore {
+  display: block;
+  padding-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  text-align: right;
+}
+
+.ServiceListItem__readmore span {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  background: #000;
+  color: yellow;
+  padding: 10px 0;
+}
+
+.ServiceListItem__readmore:hover span {
+  color: #fff;
+}

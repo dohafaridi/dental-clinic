@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 // Import Style
 import styles from './Header.css';
@@ -21,9 +22,9 @@ const Header = props => {
         <div className="container">
           <div className="row">
             <div className="col-xs-2 col-md-1">
-              <a href="/">
+              <Link to="/">
                 <img src={logo} alt="logo" />
-              </a>
+              </Link>
             </div>
             <div className="col-xs-10 col-md-11">
               <div className={styles.Header__icons}>
