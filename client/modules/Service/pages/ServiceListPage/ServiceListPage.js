@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import ServiceList from '../components/ServiceList';
-import { fetchServices } from '../ServiceActions';
+import ServiceList from '../../components/ServiceList';
+import { fetchServices } from '../../ServiceActions';
 
 class ServiceListPage extends Component {
   componentDidMount() {

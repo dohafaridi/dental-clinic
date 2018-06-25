@@ -10,7 +10,7 @@ const renderContent = content => content.substring(0, MAX_LENGTH);
 const ServiceListItem = ({ service }) => (
   <article className={styles.ServiceListItem}>
     <div className={styles.ServiceListItem__title}>
-      <Link to="#" title={service.title}>
+      <Link to={`/services/${service.slug}`} title={service.title}>
         {service.title}
       </Link>
     </div>
@@ -18,7 +18,7 @@ const ServiceListItem = ({ service }) => (
       {renderContent(service.content)}...
     </div>
     <Link
-      to="#"
+      to={`/services/${service.slug}`}
       className={styles.ServiceListItem__readmore}
     >
       {<FormattedMessage id="readMore" />}
