@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import { FormattedMessage } from 'react-intl';
 
 // Import Style
 import styles from './Header.css';
 import logo from './images/logo.png';
 
-const Header = props => {
+const Header = (props, context) => {
   const languageNodes = props.intl.enabledLanguages.map(lang => (
     <li
       key={lang}
@@ -51,6 +52,13 @@ const Header = props => {
                   <i className="fa fa-align-left" aria-hidden="true" />
                 </span>
               </div>
+              <div className={styles.Header__menu}>
+                {
+                  context.router.isActive('/services', true)
+                    ? <a className={styles['add-service-button']} href="#" onClick={props.toggleAddService}><FormattedMessage id="addService" /></a>
+                    : null
+                }
+              </div>
             </div>
           </div>
         </div>
@@ -59,9 +67,14 @@ const Header = props => {
   );
 };
 
+Header.contextTypes = {
+  router: React.PropTypes.object,
+};
+
 Header.propTypes = {
   switchLanguage: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
+  toggleAddService: PropTypes.func.isRequired,
 };
 
 export default Header;

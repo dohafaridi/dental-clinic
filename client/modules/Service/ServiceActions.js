@@ -22,3 +22,14 @@ export const fetchServices = () => dispatch =>
 
 export const fetchService = slug => dispatch =>
   callApi(`services/${slug}`).then(res => dispatch(addService(res.service)));
+
+export const addServiceRequest = service => {
+  return dispatch => {
+    return callApi('services', 'service', {
+      service: {
+        title: service.title,
+        content: service.content,
+      },
+    }).then(res => dispatch(addService(res.service)));
+  };
+};
