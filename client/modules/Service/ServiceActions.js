@@ -25,7 +25,7 @@ export const fetchService = slug => dispatch =>
 
 export const addServiceRequest = service => {
   return dispatch => {
-    return callApi('services', 'service', {
+    return callApi('services', 'post', {
       service: {
         title: service.title,
         content: service.content,
