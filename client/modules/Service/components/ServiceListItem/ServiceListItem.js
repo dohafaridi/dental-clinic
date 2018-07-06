@@ -7,7 +7,7 @@ import styles from './ServiceListItem.css';
 const MAX_LENGTH = 300;
 const renderContent = content => content.substring(0, MAX_LENGTH);
 
-const ServiceListItem = ({ service }) => (
+const ServiceListItem = ({ service, onDelete }) => (
   <article className={styles.ServiceListItem}>
     <div className={styles.ServiceListItem__title}>
       <Link to={`/services/${service.slug}`} title={service.title}>
@@ -17,17 +17,27 @@ const ServiceListItem = ({ service }) => (
     <div className={styles.ServiceListItem__content}>
       {renderContent(service.content)}...
     </div>
-    <Link
-      to={`/services/${service.slug}`}
-      className={styles.ServiceListItem__readmore}
-    >
-      {<FormattedMessage id="readMore" />}
-    </Link>
+    <div className={styles.ServiceListItem__links}>
+      <a
+        href="#"
+        className={styles['ServiceListItem__links--item']}
+        onClick={onDelete}
+      >
+        <FormattedMessage id="deleteService" />
+      </a>
+      <Link
+        to={`/services/${service.slug}`}
+        className={styles['ServiceListItem__links--item']}
+      >
+        {<FormattedMessage id="readMore" />}
+      </Link>
+    </div>
   </article>
 );
 
 ServiceListItem.propTypes = {
   service: PropTypes.object,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ServiceListItem;

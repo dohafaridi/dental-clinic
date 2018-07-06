@@ -12,4 +12,7 @@ router.route('/services/:slug').get(ServiceController.getService);
 // Add a new Service
 router.route('/services').post(ServiceController.addService);
 
+// Delete a service by cuid
+router.route('/services/:cuid').delete(ServiceController.deleteService);
+
 export default router;

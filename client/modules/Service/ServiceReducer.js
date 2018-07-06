@@ -1,4 +1,4 @@
-import { ADD_SERVICE, ADD_SERVICES } from './ServiceActions';
+import { ADD_SERVICE, ADD_SERVICES, DELETE_SERVICE } from './ServiceActions';
 
 const initialState = { data: [] };
 
@@ -12,6 +12,11 @@ const ServiceReducer = (state = initialState, action) => {
     case ADD_SERVICES :
       return {
         data: action.services,
+      };
+
+    case DELETE_SERVICE :
+      return {
+        data: state.data.filter(post => post.cuid !== action.cuid),
       };
 
     default:

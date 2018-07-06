@@ -18,24 +18,34 @@
   line-height: 2;
 }
 
-.ServiceListItem__readmore {
-  display: block;
+.ServiceListItem__links {
   padding-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ServiceListItem__links:last-child {
+  padding-left: 0;
+}
+
+.ServiceListItem__links--item {
+  display: block;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: 12px;
   text-align: right;
+  padding-left: 5px;
 }
 
-.ServiceListItem__readmore span {
+.ServiceListItem__links--item span {
   display: inline-block;
-  width: 100px;
+  width: 200px;
   text-align: center;
   background: #000;
   color: yellow;
   padding: 10px 0;
 }
 
-.ServiceListItem__readmore:hover span {
+.ServiceListItem__links--item:hover span {
   color: #fff;
 }

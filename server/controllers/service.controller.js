@@ -52,3 +52,21 @@ export const addService = (req, res) => {
       (err ? res.status(500).send(err) : res.json({ service: saved }))
   );
 };
+
+/**
+ * Delete a service
+ * @param req
+ * @param res
+ * @returns void
+ */
+export const deleteService = (req, res) => {
+  Service.findOne({ cuid: req.params.cuid }).exec((err, service) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    service.remove(() => {
+      res.status(200).end();
+    });
+  });
+};
