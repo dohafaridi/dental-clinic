@@ -70,3 +70,13 @@ export const deleteService = (req, res) => {
     });
   });
 };
+
+/**
+ * Edit a service
+ * @param req
+ * @param res
+ * @returns void
+ */
+export const editService = (req, res) => {
+  console.log('MON bb i');
+};

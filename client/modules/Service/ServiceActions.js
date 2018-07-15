@@ -2,6 +2,7 @@ import callApi from '../../util/apiCaller';
 
 export const ADD_SERVICE = 'ADD_SERVICE';
 export const ADD_SERVICES = 'ADD_SERVICES';
+export const EDIT_SERVICE = 'EDIT_SERVICE';
 export const DELETE_SERVICE = 'DELETE_SERVICE';
 
 export function addService(service) {
@@ -34,6 +35,19 @@ export const addServiceRequest = service => {
     }).then(res => dispatch(addService(res.service)));
   };
 };
+
+export function editService(cuid) {
+  return {
+    type: EDIT_SERVICE,
+    cuid,
+  };
+}
+
+export function editServiceRequest(cuid) {
+  return (dispatch) => {
+    return callApi(`services/${cuid}`, 'post').then(() => dispatch(editService(cuid)));
+  };
+}
 
 export function deleteService(cuid) {
   return {

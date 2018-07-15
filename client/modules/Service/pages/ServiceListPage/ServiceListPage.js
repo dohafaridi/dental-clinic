@@ -2,33 +2,58 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import ServiceList from '../../components/ServiceList';
-import ServiceCreateWidget from '../../components/ServiceCreateWidget/ServiceCreateWidget';
-import { addServiceRequest, fetchServices, deleteServiceRequest } from '../../ServiceActions';
-import { toggleAddService } from '../../../App/AppActions';
+import ServiceWidget from '../../components/ServiceWidget/ServiceWidget';
+import { 
+  addServiceRequest, 
+  fetchServices, 
+  editServiceRequest, 
+  deleteServiceRequest
+ } from '../../ServiceActions';
+import { toggleShowServiceWidget } from '../../../App/AppActions';
+import { setDefaultServiceWidgetValues } from '../../components/ServiceWidget/ServiceWidgetActions';
 
 class ServiceListPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchServices());
+
     this.handleAddService = this.handleAddService.bind(this);
     this.handleDeleteService = this.handleDeleteService.bind(this);
+    this.handleEditService = this.handleEditService.bind(this);
   }
 
   handleAddService(title, content) {
-    this.props.dispatch(toggleAddService());
+    this.props.dispatch(toggleShowServiceWidget());
     this.props.dispatch(addServiceRequest({ title, content }));
   }
 
-  handleDeleteService(service) {
+  handleEditService(cuid) {
+    this.props.dispatch(setDefaultServiceWidgetValues({
+      serviceWidgetTitle : 'createNewService', 
+      titleInputValue : 'TODO', 
+      contentTextareValue : 'TODO'
+    }));
+    this.props.dispatch(toggleShowServiceWidget());
+    this.props.dispatch(editServiceRequest(cuid));
+  }
+
+  handleDeleteService(cuid) {
     if (confirm('Do you want to delete this service')) { // eslint-disable-line
-      this.props.dispatch(deleteServiceRequest(service));
+      this.props.dispatch(deleteServiceRequest(cuid));
     }
   }
 
   render() {
     return (
       <div className="ServiceListPage">
-        <ServiceCreateWidget addService={this.handleAddService} showAddService={this.props.showAddService} />
-        <ServiceList handleDeleteService={this.handleDeleteService} services={this.props.services} />
+        <ServiceWidget
+          manageService={this.handleAddService} 
+          showServiceWidget={this.props.showServiceWidget} 
+        />
+        <ServiceList 
+          handleDeleteService={this.handleDeleteService}
+          handleEditService={this.handleEditService}
+          services={this.props.services} 
+        />
       </div>
     );
   }
@@ -38,13 +63,13 @@ class ServiceListPage extends Component {
 ServiceListPage.need = [() => { return fetchServices(); }];
 
 const mapStateToProps = state => ({
-  showAddService: state.app.showAddService,
+  showServiceWidget: state.app.showServiceWidget,
   services: state.services.data,
 });
 
 ServiceListPage.propTypes = {
   services: PropTypes.array,
-  showAddService: PropTypes.bool.isRequired,
+  showServiceWidget: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 

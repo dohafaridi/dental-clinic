@@ -1,13 +1,13 @@
-.ServiceCreateWidget {
+.ServiceWidget {
   display: none;
   margin: 50px 0;
 }
 
-.ServiceCreateWidget__hide {
+.ServiceWidget__hide {
   display: block;
 }
 
-.ServiceCreateWidget__title {
+.ServiceWidget__title {
   font-size: 30px;
   text-align: center;
   font-weight: 100;
@@ -16,6 +16,6 @@
   color: #a3a3a3;
 }
 
-.ServiceCreateWidget__submit {
+.ServiceWidget__submit {
   text-align: center;
 }

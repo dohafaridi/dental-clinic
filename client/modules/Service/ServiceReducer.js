@@ -1,4 +1,9 @@
-import { ADD_SERVICE, ADD_SERVICES, DELETE_SERVICE } from './ServiceActions';
+import { 
+  ADD_SERVICE, 
+  ADD_SERVICES, 
+  EDIT_SERVICE, 
+  DELETE_SERVICE 
+} from './ServiceActions';
 
 const initialState = { data: [] };
 
@@ -13,6 +18,11 @@ const ServiceReducer = (state = initialState, action) => {
       return {
         data: action.services,
       };
+    
+    case EDIT_SERVICE :
+      return {
+        data: [],
+    };
 
     case DELETE_SERVICE :
       return {

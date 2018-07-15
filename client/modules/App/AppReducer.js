@@ -1,14 +1,14 @@
-import { TOGGLE_ADD_SERVICE } from './AppActions';
+import { TOGGLE_SHOW_SERVICE_WIDGET } from './AppActions';
 
 const initialState = {
-  showAddService: false,
+  showServiceWidget: false,
 };
 
 const AppReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_ADD_SERVICE:
+    case TOGGLE_SHOW_SERVICE_WIDGET:
       return {
-        showAddService: !state.showAddService,
+        showServiceWidget: !state.showServiceWidget,
       };
 
     default:

@@ -1,7 +1,7 @@
-export const TOGGLE_ADD_SERVICE = 'TOGGLE_ADD_SERVICE';
+export const TOGGLE_SHOW_SERVICE_WIDGET = 'TOGGLE_SHOW_SERVICE_WIDGET';
 
-export function toggleAddService() {
+export function toggleShowServiceWidget() {
   return {
-    type: TOGGLE_ADD_SERVICE,
+    type: TOGGLE_SHOW_SERVICE_WIDGET,
   };
 }

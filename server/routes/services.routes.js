@@ -12,6 +12,9 @@ router.route('/services/:slug').get(ServiceController.getService);
 // Add a new Service
 router.route('/services').post(ServiceController.addService);
 
+// Edit a service by cuid
+router.route('/services/:cuid').post(ServiceController.editService);
+
 // Delete a service by cuid
 router.route('/services/:cuid').delete(ServiceController.deleteService);
 

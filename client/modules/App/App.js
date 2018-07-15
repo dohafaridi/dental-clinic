@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 
 // Import Actions
 import { switchLanguage } from '../../modules/Intl/IntlActions';
-import { toggleAddService } from './AppActions';
+import { toggleShowServiceWidget } from './AppActions';
 
 let DevTools;
 if (process.env.NODE_ENV === 'development') {
@@ -20,15 +20,15 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = { isMounted: false };
-    this.toggleAddServiceSection = this.toggleAddServiceSection.bind(this);
+    this.toggleShowServiceWidgetSection = this.toggleShowServiceWidgetSection.bind(this);
   }
 
   componentDidMount() {
     this.setState({isMounted: true}); // eslint-disable-line
   }
 
-  toggleAddServiceSection() {
-    this.props.dispatch(toggleAddService());
+  toggleShowServiceWidgetSection() {
+    this.props.dispatch(toggleShowServiceWidget());
   }
 
   render() {
@@ -54,7 +54,7 @@ export class App extends Component {
           <Header
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
             intl={this.props.intl}
-            toggleAddService={this.toggleAddServiceSection}
+            toggleShowServiceWidget={this.toggleShowServiceWidgetSection}
           />
           <div className="container">
             {this.props.children}
