@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 import ServiceList from '../../components/ServiceList';
 import ServiceWidget from '../../components/ServiceWidget/ServiceWidget';
-import { 
-  addServiceRequest, 
-  fetchServices, 
-  editServiceRequest, 
-  deleteServiceRequest
- } from '../../ServiceActions';
+import {
+  addServiceRequest,
+  fetchServices,
+  editServiceRequest,
+  deleteServiceRequest,
+} from '../../ServiceActions';
 import { toggleShowServiceWidget } from '../../../App/AppActions';
 import { setDefaultServiceWidgetValues } from '../../components/ServiceWidget/ServiceWidgetActions';
 
@@ -27,11 +27,13 @@ class ServiceListPage extends Component {
   }
 
   handleEditService(cuid) {
-    this.props.dispatch(setDefaultServiceWidgetValues({
-      serviceWidgetTitle : 'createNewService', 
-      titleInputValue : 'TODO', 
-      contentTextareValue : 'TODO'
-    }));
+    this.props.dispatch(
+      setDefaultServiceWidgetValues({
+        serviceWidgetTitle: 'createNewService',
+        titleInputValue: 'TODO',
+        contentTextareaValue: 'TODO',
+      })
+    );
     this.props.dispatch(toggleShowServiceWidget());
     this.props.dispatch(editServiceRequest(cuid));
   }
@@ -46,13 +48,13 @@ class ServiceListPage extends Component {
     return (
       <div className="ServiceListPage">
         <ServiceWidget
-          manageService={this.handleAddService} 
-          showServiceWidget={this.props.showServiceWidget} 
+          manageService={this.handleAddService}
+          showServiceWidget={this.props.showServiceWidget}
         />
-        <ServiceList 
+        <ServiceList
           handleDeleteService={this.handleDeleteService}
           handleEditService={this.handleEditService}
-          services={this.props.services} 
+          services={this.props.services}
         />
       </div>
     );
@@ -60,7 +62,11 @@ class ServiceListPage extends Component {
 }
 
 // Actions required to provide data for ServiceListPage to render in sever side.
-ServiceListPage.need = [() => { return fetchServices(); }];
+ServiceListPage.need = [
+  () => {
+    return fetchServices();
+  },
+];
 
 const mapStateToProps = state => ({
   showServiceWidget: state.app.showServiceWidget,

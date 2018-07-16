@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { intlShape, FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 // Import Style
 import styles from './ServiceWidget.css';
@@ -8,7 +8,7 @@ import styles from './ServiceWidget.css';
 export class ServiceWidget extends Component {
   constructor(props) {
     super(props);
-    
+
     this.manageService = this.manageService.bind(this);
   }
 
@@ -46,17 +46,19 @@ export class ServiceWidget extends Component {
           <div className="row form-group">
             <textarea
               placeholder={this.props.intl.messages.serviceContent}
-              value={this.props.widgetValues.contentTextareValue}
+              value={this.props.widgetValues.contentTextareaValue}
               className="form-control"
               ref="content"
             />
           </div>
           <div
-            className={`col-sm-12 col-md-12 ${
-              styles.ServiceWidget__submit
-            }`}
+            className={`col-sm-12 col-md-12 ${styles.ServiceWidget__submit}`}
           >
-            <a className="btn btn-default" href="#" onClick={this.manageService}>
+            <a
+              className="btn btn-default"
+              href="#"
+              onClick={this.manageService}
+            >
               <FormattedMessage id="submit" />
             </a>
           </div>
@@ -74,6 +76,8 @@ const mapStateToProps = state => ({
 ServiceWidget.propTypes = {
   manageService: PropTypes.func.isRequired,
   showServiceWidget: PropTypes.bool.isRequired,
+  widgetValues: PropTypes.object,
+  intl: PropTypes.object,
 };
 
 export default connect(mapStateToProps)(ServiceWidget);

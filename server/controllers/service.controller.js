@@ -77,6 +77,4 @@ export const deleteService = (req, res) => {
  * @param res
  * @returns void
  */
-export const editService = (req, res) => {
-  console.log('MON bb i');
-};
+export const editService = () => [];
