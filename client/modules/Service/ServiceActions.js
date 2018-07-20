@@ -5,12 +5,12 @@ export const ADD_SERVICES = 'ADD_SERVICES';
 export const EDIT_SERVICE = 'EDIT_SERVICE';
 export const DELETE_SERVICE = 'DELETE_SERVICE';
 
-export function addService(service) {
+export const addService = service => {
   return {
     type: ADD_SERVICE,
     service,
   };
-}
+};
 
 export const addServices = services => ({
   type: ADD_SERVICES,
@@ -36,28 +36,33 @@ export const addServiceRequest = service => {
   };
 };
 
-export function editService(cuid) {
+export const editService = service => {
   return {
     type: EDIT_SERVICE,
-    cuid,
+    service,
   };
-}
+};
 
-export function editServiceRequest(cuid) {
+export const editServiceRequest = (title, content, cuid) => {
   return (dispatch) => {
-    return callApi(`services/${cuid}`, 'post').then(() => dispatch(editService(cuid)));
+    return callApi(`services/${cuid}`, 'post', {
+      service: {
+        title,
+        content,
+      },
+    }).then(res => dispatch(editService(res.service)));
   };
-}
+};
 
-export function deleteService(cuid) {
+export const deleteService = cuid => {
   return {
     type: DELETE_SERVICE,
     cuid,
   };
-}
+};
 
-export function deleteServiceRequest(cuid) {
+export const deleteServiceRequest = cuid => {
   return (dispatch) => {
     return callApi(`services/${cuid}`, 'delete').then(() => dispatch(deleteService(cuid)));
   };
-}
+};

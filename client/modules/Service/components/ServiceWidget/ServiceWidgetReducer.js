@@ -2,16 +2,19 @@ import { SET_DEFAULT_SERVICE_WIDGET_VALUES } from './ServiceWidgetActions';
 
 const initialState = {
   defaultValues: {
-    serviceWidgetTitle: 'createNewService',
+    serviceWidgetTitleIntId: 'createNewService',
     titleInputValue: '',
     contentTextareaValue: '',
+    cuid: '',
   },
 };
 
 const ServiceWidgetReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_DEFAULT_SERVICE_WIDGET_VALUES:
-      return [state.defaultValues, ...action.defaultValues];
+      return action.defaultValues && state.defaultValues
+        ? Object.assign(state.defaultValues, {}, action.defaultValues)
+        : initialState.defaultValues;
 
     default:
       return state;

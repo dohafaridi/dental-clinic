@@ -77,4 +77,23 @@ export const deleteService = (req, res) => {
  * @param res
  * @returns void
  */
-export const editService = () => [];
+export const editService = (req, res) => {
+  const query = { cuid: req.params.cuid };
+  const newValues = {
+    $set: {
+      title: req.body.service.title,
+      content: req.body.service.content,
+      slug: slug(req.body.service.title, { lowercase: true }),
+    },
+  };
+  Service.findOneAndUpdate(
+    query,
+    newValues,
+    (err, saved) =>
+      (
+        err
+        ? res.status(500).send(err)
+        : res.json({ service: Object.assign(saved, {}, newValues.$set) })
+      )
+  );
+};

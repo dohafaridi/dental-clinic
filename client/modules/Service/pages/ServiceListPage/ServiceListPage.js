@@ -16,9 +16,17 @@ class ServiceListPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchServices());
 
+    this.handleServiceWidgetSubmit = this.handleServiceWidgetSubmit.bind(this);
+    this.toggleShowServiceWidgetSection = this.toggleShowServiceWidgetSection.bind(this);
     this.handleAddService = this.handleAddService.bind(this);
     this.handleDeleteService = this.handleDeleteService.bind(this);
     this.handleEditService = this.handleEditService.bind(this);
+  }
+
+  handleServiceWidgetSubmit(title, content) {
+    this.props.widgetValues.serviceWidgetTitleIntId === 'editTheService'
+      ? this.handleEditService(title, content, this.props.widgetValues.cuid)
+      : this.handleAddService(title, content);
   }
 
   handleAddService(title, content) {
@@ -26,16 +34,21 @@ class ServiceListPage extends Component {
     this.props.dispatch(addServiceRequest({ title, content }));
   }
 
-  handleEditService(cuid) {
+  handleEditService(title, content, cuid) {
+    this.props.dispatch(toggleShowServiceWidget());
+    this.props.dispatch(editServiceRequest(title, content, cuid));
+  }
+
+  toggleShowServiceWidgetSection(service) {
+    this.props.dispatch(toggleShowServiceWidget());
     this.props.dispatch(
       setDefaultServiceWidgetValues({
-        serviceWidgetTitle: 'createNewService',
-        titleInputValue: 'TODO',
-        contentTextareaValue: 'TODO',
+        serviceWidgetTitleIntId: 'editTheService',
+        titleInputValue: service.title,
+        contentTextareaValue: service.content,
+        cuid: service.cuid,
       })
     );
-    this.props.dispatch(toggleShowServiceWidget());
-    this.props.dispatch(editServiceRequest(cuid));
   }
 
   handleDeleteService(cuid) {
@@ -48,12 +61,12 @@ class ServiceListPage extends Component {
     return (
       <div className="ServiceListPage">
         <ServiceWidget
-          manageService={this.handleAddService}
+          manageService={this.handleServiceWidgetSubmit}
           showServiceWidget={this.props.showServiceWidget}
         />
         <ServiceList
           handleDeleteService={this.handleDeleteService}
-          handleEditService={this.handleEditService}
+          handleEditService={this.toggleShowServiceWidgetSection}
           services={this.props.services}
         />
       </div>
@@ -69,6 +82,7 @@ ServiceListPage.need = [
 ];
 
 const mapStateToProps = state => ({
+  widgetValues: state.servicesWidget,
   showServiceWidget: state.app.showServiceWidget,
   services: state.services.data,
 });
@@ -76,6 +90,7 @@ const mapStateToProps = state => ({
 ServiceListPage.propTypes = {
   services: PropTypes.array,
   showServiceWidget: PropTypes.bool.isRequired,
+  widgetValues: PropTypes.object,
   dispatch: PropTypes.func.isRequired,
 };
 

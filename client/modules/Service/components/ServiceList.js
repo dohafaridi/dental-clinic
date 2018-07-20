@@ -15,7 +15,7 @@ const ServiceList = ({ services, handleDeleteService, handleEditService }) =>
           key={service.cuid}
           service={service}
           onDelete={() => handleDeleteService(service.cuid)}
-          onEdit={() => handleEditService(service.cuid)}
+          onEdit={() => handleEditService(service)}
         />
       ))}
     </div>

@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 // Import Actions
 import { switchLanguage } from '../../modules/Intl/IntlActions';
 import { toggleShowServiceWidget } from './AppActions';
+import { setDefaultServiceWidgetValues } from '../../modules/Service/components/ServiceWidget/ServiceWidgetActions';
 
 let DevTools;
 if (process.env.NODE_ENV === 'development') {
@@ -20,21 +21,32 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = { isMounted: false };
-    this.toggleShowServiceWidgetSection = this.toggleShowServiceWidgetSection.bind(this);
+    this.toggleShowServiceWidgetSection = this.toggleShowServiceWidgetSection.bind(
+      this
+    );
   }
 
   componentDidMount() {
-    this.setState({isMounted: true}); // eslint-disable-line
+    this.setState({ isMounted: true }); // eslint-disable-line
   }
 
   toggleShowServiceWidgetSection() {
     this.props.dispatch(toggleShowServiceWidget());
+    this.props.dispatch(
+      setDefaultServiceWidgetValues({
+        serviceWidgetTitleIntId: 'createNewService',
+        titleInputValue: '',
+        contentTextareaValue: '',
+      })
+    );
   }
 
   render() {
     return (
       <div>
-        {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
+        {this.state.isMounted &&
+          !window.devToolsExtension &&
+          process.env.NODE_ENV === 'development' && <DevTools />}
         <div>
           <Helmet
             title="Dental clinic"
@@ -56,9 +68,7 @@ export class App extends Component {
             intl={this.props.intl}
             toggleShowServiceWidget={this.toggleShowServiceWidgetSection}
           />
-          <div className="container">
-            {this.props.children}
-          </div>
+          <div className="container">{this.props.children}</div>
           <Footer />
         </div>
       </div>
