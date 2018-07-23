@@ -82,7 +82,7 @@ ServiceListPage.need = [
 ];
 
 const mapStateToProps = state => ({
-  widgetValues: state.servicesWidget,
+  widgetValues: state.servicesWidget.defaultValues,
   showServiceWidget: state.app.showServiceWidget,
   services: state.services.data,
 });

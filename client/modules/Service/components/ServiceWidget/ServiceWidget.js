@@ -105,7 +105,7 @@ export class ServiceWidget extends Component {
 }
 
 const mapStateToProps = state => ({
-  widgetValues: state.servicesWidget,
+  widgetValues: state.servicesWidget.defaultValues,
   intl: state.intl,
 });
 

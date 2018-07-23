@@ -12,9 +12,12 @@ const initialState = {
 const ServiceWidgetReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_DEFAULT_SERVICE_WIDGET_VALUES:
-      return action.defaultValues && state.defaultValues
-        ? Object.assign(state.defaultValues, {}, action.defaultValues)
-        : initialState.defaultValues;
+      return {
+        defaultValues:
+          action.defaultValues && state.defaultValues
+            ? Object.assign(state.defaultValues, {}, action.defaultValues)
+            : initialState.defaultValues,
+      };
 
     default:
       return state;
