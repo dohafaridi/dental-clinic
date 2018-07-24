@@ -55,7 +55,12 @@ const Header = (props, context) => {
               <div className={styles.Header__menu}>
                 {
                   context.router.isActive('/services', true)
-                    ? <a className={styles['add-service-button']} href="#" onClick={props.toggleShowServiceWidget}><FormattedMessage id="addService" /></a>
+                    ? <a href="#" onClick={props.toggleShowServiceWidget}><FormattedMessage id="addService" /></a>
+                    : null
+                }
+                {
+                  context.router.isActive('/testimonials', true)
+                    ? <a href="#" onClick={props.toggleShowTestimonialWidget}><FormattedMessage id="addTestimonial" /></a>
                     : null
                 }
               </div>
@@ -75,6 +80,7 @@ Header.propTypes = {
   switchLanguage: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
   toggleShowServiceWidget: PropTypes.func.isRequired,
+  toggleShowTestimonialWidget: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -19,6 +19,8 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/AboutUs/AboutUs');
   require('./modules/Service/pages/ServiceListPage/ServiceListPage');
   require('./modules/Service/pages/ServiceDetailPage/ServiceDetailPage');
+  require('./modules/Testimonial/pages/TestimonialListPage/TestimonialListPage');
+  require('./modules/Testimonial/pages/TestimonialDetailPage/TestimonialDetailPage');
 }
 
 // react-router setup with code-splitting
@@ -36,7 +38,11 @@ export default (
       path="/services"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Service/pages/ServiceListPage/ServiceListPage').default);
+          cb(
+            null,
+            require('./modules/Service/pages/ServiceListPage/ServiceListPage')
+              .default
+          );
         });
       }}
     />
@@ -44,7 +50,35 @@ export default (
       path="/services/:slug"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Service/pages/ServiceDetailPage/ServiceDetailPage').default);
+          cb(
+            null,
+            require('./modules/Service/pages/ServiceDetailPage/ServiceDetailPage')
+              .default
+          );
+        });
+      }}
+    />
+    <Route
+      path="/testimonials"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(
+            null,
+            require('./modules/Testimonial/pages/TestimonialListPage/TestimonialListPage')
+              .default
+          );
+        });
+      }}
+    />
+    <Route
+      path="/testimonials/:slug"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(
+            null,
+            require('./modules/Testimonial/pages/TestimonialDetailPage/TestimonialDetailPage')
+              .default
+          );
         });
       }}
     />

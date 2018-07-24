@@ -1,7 +1,11 @@
-import { TOGGLE_SHOW_SERVICE_WIDGET } from './AppActions';
+import {
+  TOGGLE_SHOW_SERVICE_WIDGET,
+  TOGGLE_SHOW_TESTIMONIAL_WIDGET,
+} from './AppActions';
 
 const initialState = {
   showServiceWidget: false,
+  showTestimonialWidget: false,
 };
 
 const AppReducer = (state = initialState, action) => {
@@ -9,6 +13,11 @@ const AppReducer = (state = initialState, action) => {
     case TOGGLE_SHOW_SERVICE_WIDGET:
       return {
         showServiceWidget: !state.showServiceWidget,
+      };
+
+    case TOGGLE_SHOW_TESTIMONIAL_WIDGET:
+      return {
+        showTestimonialWidget: !state.showTestimonialWidget,
       };
 
     default:

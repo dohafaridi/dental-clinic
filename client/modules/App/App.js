@@ -8,8 +8,9 @@ import Footer from './components/Footer/Footer';
 
 // Import Actions
 import { switchLanguage } from '../../modules/Intl/IntlActions';
-import { toggleShowServiceWidget } from './AppActions';
+import { toggleShowServiceWidget, toggleShowTestimonialWidget } from './AppActions';
 import { setDefaultServiceWidgetValues } from '../../modules/Service/components/ServiceWidget/ServiceWidgetActions';
+import { setDefaultTestimonialWidgetValues } from '../../modules/Testimonial/components/TestimonialWidget/TestimonialWidgetActions';
 
 let DevTools;
 if (process.env.NODE_ENV === 'development') {
@@ -24,6 +25,9 @@ export class App extends Component {
     this.toggleShowServiceWidgetSection = this.toggleShowServiceWidgetSection.bind(
       this
     );
+    this.toggleShowTestimonialWidgetSection = this.toggleShowTestimonialWidgetSection.bind(
+      this
+    );
   }
 
   componentDidMount() {
@@ -35,6 +39,17 @@ export class App extends Component {
     this.props.dispatch(
       setDefaultServiceWidgetValues({
         serviceWidgetTitleIntId: 'createNewService',
+        titleInputValue: '',
+        contentTextareaValue: '',
+      })
+    );
+  }
+
+  toggleShowTestimonialWidgetSection() {
+    this.props.dispatch(toggleShowTestimonialWidget());
+    this.props.dispatch(
+      setDefaultTestimonialWidgetValues({
+        testimonialWidgetTitleIntId: 'createNewTestimonial',
         titleInputValue: '',
         contentTextareaValue: '',
       })
@@ -67,6 +82,7 @@ export class App extends Component {
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
             intl={this.props.intl}
             toggleShowServiceWidget={this.toggleShowServiceWidgetSection}
+            toggleShowTestimonialWidget={this.toggleShowTestimonialWidgetSection}
           />
           <div className="container">{this.props.children}</div>
           <Footer />

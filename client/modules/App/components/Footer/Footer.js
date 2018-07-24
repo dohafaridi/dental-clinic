@@ -20,6 +20,10 @@ const Footer = () => {
               <li>
                 <Link to="/services"><FormattedMessage id="serviceLabel" /></Link>
               </li>
+              <li className="semicolon">:</li>
+              <li>
+                <Link to="/testimonials"><FormattedMessage id="testimonialLabel" /></Link>
+              </li>
             </ul>
           </div>
           <p className={styles.Footer__copyright}>

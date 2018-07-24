@@ -1,0 +1,19 @@
+.TestimonialDetailPage {
+  padding: 50px 0;
+}
+
+.TestimonialDetailPage__title {
+  color: #000;
+  margin: 0;
+  font-size: 23px;
+  font-weight: 600;
+  text-align: left;
+  padding-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.TestimonialDetailPage__content {
+  color: #b0b0b0;
+  font-size: 17px;
+  line-height: 2;
+}

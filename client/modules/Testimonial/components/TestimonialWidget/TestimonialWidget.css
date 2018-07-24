@@ -1,0 +1,21 @@
+.TestimonialWidget {
+  display: none;
+  margin: 50px 0;
+}
+
+.TestimonialWidget__hide {
+  display: block;
+}
+
+.TestimonialWidget__title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 100;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  color: #a3a3a3;
+}
+
+.TestimonialWidget__submit {
+  text-align: center;
+}

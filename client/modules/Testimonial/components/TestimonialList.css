@@ -1,0 +1,11 @@
+.TestimonialList {
+  padding: 80px 0;
+}
+
+.TestimonialList__title {
+  font-size: 74px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 50px;
+  color: #000;
+}
