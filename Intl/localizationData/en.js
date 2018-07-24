@@ -37,6 +37,7 @@ export default {
     	  =1 {has # comment}
     	  other {has # comments}
     	} as of {date}`,
+    emptyCollectionMessage: 'No result found, try to insert a new {collection}.',
     appRights: '(C) 2018 All rights reserved ',
   },
 };

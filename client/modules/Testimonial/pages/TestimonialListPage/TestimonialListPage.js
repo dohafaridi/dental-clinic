@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 
 import TestimonialList from '../../components/TestimonialList';
 import TestimonialWidget from '../../components/TestimonialWidget/TestimonialWidget';
@@ -58,7 +59,7 @@ class TestimonialListPage extends Component {
   }
 
   render() {
-    return (
+    const componentContent = (
       <div className="TestimonialListPage">
         <TestimonialWidget
           manageTestimonial={this.handleTestimonialWidgetSubmit}
@@ -71,6 +72,14 @@ class TestimonialListPage extends Component {
         />
       </div>
     );
+    const emptyCollectionMessage = (
+      <FormattedMessage
+        id="emptyCollectionMessage"
+        values={{ collection: 'testimonial' }}
+      />
+    );
+
+    return this.props.testimonials.length ? componentContent : emptyCollectionMessage;
   }
 }
 

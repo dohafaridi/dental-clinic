@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 
 import ServiceList from '../../components/ServiceList';
 import ServiceWidget from '../../components/ServiceWidget/ServiceWidget';
@@ -58,7 +59,7 @@ class ServiceListPage extends Component {
   }
 
   render() {
-    return (
+    const componentContent = (
       <div className="ServiceListPage">
         <ServiceWidget
           manageService={this.handleServiceWidgetSubmit}
@@ -71,6 +72,14 @@ class ServiceListPage extends Component {
         />
       </div>
     );
+    const emptyCollectionMessage = (
+      <FormattedMessage
+        id="emptyCollectionMessage"
+        values={{ collection: 'services' }}
+      />
+    );
+
+    return this.props.services.length ? componentContent : emptyCollectionMessage;
   }
 }
 
