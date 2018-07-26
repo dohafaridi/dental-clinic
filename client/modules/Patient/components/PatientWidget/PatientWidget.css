@@ -1,0 +1,21 @@
+.PatientWidget {
+  display: none;
+  margin: 50px 0;
+}
+
+.PatientWidget__hide {
+  display: block;
+}
+
+.PatientWidget__title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 100;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  color: #a3a3a3;
+}
+
+.PatientWidget__submit {
+  text-align: center;
+}

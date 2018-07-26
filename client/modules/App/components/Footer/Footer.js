@@ -24,6 +24,10 @@ const Footer = () => {
               <li>
                 <Link to="/testimonials"><FormattedMessage id="testimonialLabel" /></Link>
               </li>
+              <li className="semicolon">:</li>
+              <li>
+                <Link to="/patients"><FormattedMessage id="patientLabel" /></Link>
+              </li>
             </ul>
           </div>
           <p className={styles.Footer__copyright}>

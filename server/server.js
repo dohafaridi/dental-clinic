@@ -48,6 +48,7 @@ import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
 import services from './routes/services.routes';
 import testimonials from './routes/testimonials.routes';
+import patients from './routes/patients.routes';
 import serverConfig from './config';
 
 // Set native promises as mongoose promise
@@ -73,6 +74,7 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use('/api', services);
 app.use('/api', testimonials);
+app.use('/api', patients);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

@@ -4,9 +4,11 @@ export default {
     siteTitle: 'Dental clinic',
     addService: 'Add Service',
     addTestimonial: 'Add Testimonial',
+    addPatient: 'Add Patient',
     switchLanguage: 'Switch Language',
     readMore: 'Read more',
     serviceLabel: 'Services',
+    patientLabel: 'Patients',
     testimonialLabel: 'Testimonials',
     homeLabel: 'Home',
     by: 'By',
@@ -18,7 +20,11 @@ export default {
     deleteTestimonial: 'Delete testimonial',
     createNewTestimonial: 'Create new testimonial',
     editTheTestimonial: 'Edit the testimonial',
-    authorName: 'Author\'s Name',
+    editPatient: 'Edit patient',
+    deletePatient: 'Delete patient',
+    createNewPatient: 'Create new patient',
+    editThePatient: 'Edit the patient',
+    authorName: "Author's Name",
     serviceTitle: 'Service Title',
     serviceContent: 'Service Content',
     submit: 'Submit',
@@ -37,7 +43,8 @@ export default {
     	  =1 {has # comment}
     	  other {has # comments}
     	} as of {date}`,
-    emptyCollectionMessage: 'No result found, try to insert a new {collection}.',
+    emptyCollectionMessage:
+      'No result found, try to insert a new {collection}.',
     appRights: '(C) 2018 All rights reserved ',
   },
 };

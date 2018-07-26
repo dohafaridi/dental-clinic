@@ -25,7 +25,7 @@ class ServiceListPage extends Component {
   }
 
   handleServiceWidgetSubmit(title, content) {
-    this.props.widgetValues.serviceWidgetTitleIntId === 'editTheService'
+    this.props.widgetValues.serviceWidgetTitleIntId === 'editTheService' // eslint-disable-line
       ? this.handleEditService(title, content, this.props.widgetValues.cuid)
       : this.handleAddService(title, content);
   }
@@ -79,7 +79,9 @@ class ServiceListPage extends Component {
       />
     );
 
-    return this.props.services.length ? componentContent : emptyCollectionMessage;
+    return this.props.services.length || this.props.showServiceWidget
+      ? componentContent
+      : emptyCollectionMessage;
   }
 }
 

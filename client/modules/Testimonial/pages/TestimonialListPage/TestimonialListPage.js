@@ -25,7 +25,7 @@ class TestimonialListPage extends Component {
   }
 
   handleTestimonialWidgetSubmit(title, content) {
-    this.props.widgetValues.testimonialWidgetTitleIntId === 'editTheTestimonial'
+    this.props.widgetValues.testimonialWidgetTitleIntId === 'editTheTestimonial' // eslint-disable-line
       ? this.handleEditTestimonial(title, content, this.props.widgetValues.cuid)
       : this.handleAddTestimonial(title, content);
   }
@@ -79,7 +79,9 @@ class TestimonialListPage extends Component {
       />
     );
 
-    return this.props.testimonials.length ? componentContent : emptyCollectionMessage;
+    return this.props.testimonials.length || this.props.showTestimonialWidget
+      ? componentContent
+      : emptyCollectionMessage;
   }
 }
 

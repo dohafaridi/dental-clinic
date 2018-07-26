@@ -63,6 +63,11 @@ const Header = (props, context) => {
                     ? <a href="#" onClick={props.toggleShowTestimonialWidget}><FormattedMessage id="addTestimonial" /></a>
                     : null
                 }
+                {
+                  context.router.isActive('/patients', true)
+                    ? <a href="#" onClick={props.toggleShowPatientWidget}><FormattedMessage id="addPatient" /></a>
+                    : null
+                }
               </div>
             </div>
           </div>
@@ -81,6 +86,7 @@ Header.propTypes = {
   intl: PropTypes.object.isRequired,
   toggleShowServiceWidget: PropTypes.func.isRequired,
   toggleShowTestimonialWidget: PropTypes.func.isRequired,
+  toggleShowPatientWidget: PropTypes.func.isRequired,
 };
 
 export default Header;

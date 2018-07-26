@@ -1,11 +1,13 @@
 import {
   TOGGLE_SHOW_SERVICE_WIDGET,
   TOGGLE_SHOW_TESTIMONIAL_WIDGET,
+  TOGGLE_SHOW_PATIENT_WIDGET,
 } from './AppActions';
 
 const initialState = {
   showServiceWidget: false,
   showTestimonialWidget: false,
+  showPatientWidget: false,
 };
 
 const AppReducer = (state = initialState, action) => {
@@ -18,6 +20,11 @@ const AppReducer = (state = initialState, action) => {
     case TOGGLE_SHOW_TESTIMONIAL_WIDGET:
       return {
         showTestimonialWidget: !state.showTestimonialWidget,
+      };
+
+    case TOGGLE_SHOW_PATIENT_WIDGET:
+      return {
+        showPatientWidget: !state.showPatientWidget,
       };
 
     default:

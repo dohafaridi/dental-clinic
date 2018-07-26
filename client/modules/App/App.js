@@ -8,9 +8,10 @@ import Footer from './components/Footer/Footer';
 
 // Import Actions
 import { switchLanguage } from '../../modules/Intl/IntlActions';
-import { toggleShowServiceWidget, toggleShowTestimonialWidget } from './AppActions';
+import { toggleShowServiceWidget, toggleShowTestimonialWidget, toggleShowPatientWidget } from './AppActions';
 import { setDefaultServiceWidgetValues } from '../../modules/Service/components/ServiceWidget/ServiceWidgetActions';
 import { setDefaultTestimonialWidgetValues } from '../../modules/Testimonial/components/TestimonialWidget/TestimonialWidgetActions';
+import { setDefaultPatientWidgetValues } from '../../modules/Patient/components/PatientWidget/PatientWidgetActions';
 
 let DevTools;
 if (process.env.NODE_ENV === 'development') {
@@ -26,6 +27,9 @@ export class App extends Component {
       this
     );
     this.toggleShowTestimonialWidgetSection = this.toggleShowTestimonialWidgetSection.bind(
+      this
+    );
+    this.toggleShowPatientWidgetSection = this.toggleShowPatientWidgetSection.bind(
       this
     );
   }
@@ -50,6 +54,17 @@ export class App extends Component {
     this.props.dispatch(
       setDefaultTestimonialWidgetValues({
         testimonialWidgetTitleIntId: 'createNewTestimonial',
+        titleInputValue: '',
+        contentTextareaValue: '',
+      })
+    );
+  }
+
+  toggleShowPatientWidgetSection() {
+    this.props.dispatch(toggleShowPatientWidget());
+    this.props.dispatch(
+      setDefaultPatientWidgetValues({
+        patientWidgetTitleIntId: 'createNewPatient',
         titleInputValue: '',
         contentTextareaValue: '',
       })
@@ -83,6 +98,7 @@ export class App extends Component {
             intl={this.props.intl}
             toggleShowServiceWidget={this.toggleShowServiceWidgetSection}
             toggleShowTestimonialWidget={this.toggleShowTestimonialWidgetSection}
+            toggleShowPatientWidget={this.toggleShowPatientWidgetSection}
           />
           <div className="container">{this.props.children}</div>
           <Footer />
