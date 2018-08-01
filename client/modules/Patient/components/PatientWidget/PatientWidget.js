@@ -5,35 +5,105 @@ import { FormattedMessage } from 'react-intl';
 // Import Style
 import styles from './PatientWidget.css';
 
-const TEXTAREA_ROWS = '20';
+const getISODate = date => (date ? new Date(date).toISOString().slice(0, 10) : null);
 
 export class PatientWidget extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      titleValue: this.props.widgetValues.titleInputValue || '',
-      contentValue: this.props.widgetValues.contentTextareaValue || '',
+      firstNameValue: this.props.widgetValues.firstNameInputValue || '',
+      lastNameValue: this.props.widgetValues.lastNameInputValue || '',
+      sexValue: this.props.widgetValues.sexInputValue || '',
+      birthValue: this.props.widgetValues.birthDayInputValue || '',
+      phoneValue: this.props.widgetValues.phoneInputValue || '',
+      emailValue: this.props.widgetValues.emailInputValue || '',
+      addressValue: this.props.widgetValues.addressInputValue || '',
+      cityValue: this.props.widgetValues.cityInputValue || '',
+      maritalStatusValue: this.props.widgetValues.maritalStatusInputValue || '',
+      companyValue: this.props.widgetValues.companyInputValue || '',
+      doctorValue: this.props.widgetValues.doctorInputValue || '',
+      insuranceValue: this.props.widgetValues.insuranceInputValue || '',
     };
 
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+    this.handleLastNameChange = this.handleLastNameChange.bind(this);
+    this.handleSexChange = this.handleSexChange.bind(this);
+    this.handleBirthDayChange = this.handleBirthDayChange.bind(this);
+    this.handlePhoneChange = this.handlePhoneChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleAddressChange = this.handleAddressChange.bind(this);
+    this.handleCityChange = this.handleCityChange.bind(this);
+    this.handleMritalStatusChange = this.handleMritalStatusChange.bind(this);
+    this.handleCompanyChange = this.handleCompanyChange.bind(this);
+    this.handleDoctorChange = this.handleDoctorChange.bind(this);
+    this.handleInsuranceChange = this.handleInsuranceChange.bind(this);
     this.managePatient = this.managePatient.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ titleValue: nextProps.widgetValues.titleInputValue });
     this.setState({
-      contentValue: nextProps.widgetValues.contentTextareaValue,
+      firstNameValue: nextProps.widgetValues.firstNameInputValue,
+      lastNameValue: nextProps.widgetValues.lastNameInputValue,
+      sexValue: nextProps.widgetValues.sexInputValue,
+      birthValue: nextProps.widgetValues.birthDayInputValue,
+      phoneValue: nextProps.widgetValues.phoneInputValue,
+      emailValue: nextProps.widgetValues.emailInputValue,
+      addressValue: nextProps.widgetValues.addressInputValue,
+      cityValue: nextProps.widgetValues.cityInputValue,
+      maritalStatusValue: nextProps.widgetValues.maritalStatusInputValue,
+      companyValue: nextProps.widgetValues.companyInputValue,
+      doctorValue: nextProps.widgetValues.doctorInputValue,
+      insuranceValue: nextProps.widgetValues.insuranceInputValue,
     });
   }
 
-  handleTitleChange(event) {
-    this.setState({ titleValue: event.target.value });
+  handleFirstNameChange(event) {
+    this.setState({ firstNameValue: event.target.value });
   }
 
-  handleContentChange(event) {
-    this.setState({ contentValue: event.target.value });
+  handleLastNameChange(event) {
+    this.setState({ lastNameValue: event.target.value });
+  }
+
+  handleSexChange(event) {
+    this.setState({ sexValue: event.target.value });
+  }
+
+  handleBirthDayChange(event) {
+    this.setState({ birthValue: event.target.value });
+  }
+
+  handlePhoneChange(event) {
+    this.setState({ phoneValue: event.target.value });
+  }
+
+  handleEmailChange(event) {
+    this.setState({ emailValue: event.target.value });
+  }
+
+  handleAddressChange(event) {
+    this.setState({ addressValue: event.target.value });
+  }
+
+  handleCityChange(event) {
+    this.setState({ cityValue: event.target.value });
+  }
+
+  handleMritalStatusChange(event) {
+    this.setState({ maritalStatusValue: event.target.value });
+  }
+
+  handleCompanyChange(event) {
+    this.setState({ companyValue: event.target.value });
+  }
+
+  handleDoctorChange(event) {
+    this.setState({ doctorValue: event.target.value });
+  }
+
+  handleInsuranceChange(event) {
+    this.setState({ insuranceValue: event.target.value });
   }
 
   /**
@@ -41,11 +111,59 @@ export class PatientWidget extends Component {
    * editing a patient, on both operation title and content are mandatory.
    */
   managePatient() {
-    const titleRef = this.refs.title;
-    const contentRef = this.refs.content;
-    if (titleRef.value && contentRef.value) {
-      this.props.managePatient(titleRef.value, contentRef.value);
-      titleRef.value = contentRef.value = '';
+    const firstNameRef = this.refs.firstName;
+    const lastNameRef = this.refs.lastName;
+    const sexRef = this.refs.sex;
+    const birthDayRef = this.refs.birthDay;
+    const phoneRef = this.refs.phone;
+    const emailRef = this.refs.email;
+    const addressRef = this.refs.address;
+    const cityRef = this.refs.city;
+    const maritalStatusRef = this.refs.maritalStatus;
+    const companyRef = this.refs.company;
+    const doctorRef = this.refs.doctor;
+    const insuranceRef = this.refs.insurance;
+
+    if (
+      firstNameRef.value &&
+      lastNameRef.value &&
+      sexRef.value &&
+      birthDayRef.value &&
+      phoneRef.value &&
+      emailRef.value &&
+      addressRef.value &&
+      cityRef.value &&
+      maritalStatusRef.value &&
+      companyRef.value &&
+      doctorRef.value &&
+      insuranceRef.value
+    ) {
+      this.props.managePatient(
+        firstNameRef.value,
+        lastNameRef.value,
+        sexRef.value,
+        birthDayRef.value,
+        phoneRef.value,
+        emailRef.value,
+        addressRef.value,
+        cityRef.value,
+        maritalStatusRef.value,
+        companyRef.value,
+        doctorRef.value,
+        insuranceRef.value
+      );
+
+      firstNameRef.value = '';
+      lastNameRef.value = '';
+      sexRef.value = '';
+      birthDayRef.value = '';
+      phoneRef.value = '';
+      addressRef.value = '';
+      cityRef.value = '';
+      maritalStatusRef.value = '';
+      companyRef.value = '';
+      doctorRef.value = '';
+      insuranceRef.value = '';
     }
   }
 
@@ -68,36 +186,98 @@ export class PatientWidget extends Component {
           <h2 className={styles.PatientWidget__title}>
             {widgetTitleComponent}
           </h2>
-          <div className="row form-group">
+          <div className={`${styles.PatientWidget__inputs} row form-group col-md-6`}>
             <input
-              placeholder={this.props.intl.messages.patientTitle}
-              value={this.state.titleValue}
+              placeholder={this.props.intl.messages.patientFirstName}
+              value={this.state.firstNameValue}
               className="form-control"
-              ref="title"
-              onChange={this.handleTitleChange}
+              ref="firstName"
+              onChange={this.handleFirstNameChange}
+            />
+            <input
+              placeholder={this.props.intl.messages.patientLastName}
+              value={this.state.lastNameValue}
+              className="form-control"
+              ref="lastName"
+              onChange={this.handleLastNameChange}
+            />
+            <select className="form-control" ref="sex" value={this.state.sexValue} onChange={this.handleSexChange}>
+              <option>-- SEX --</option>
+              <option value="W">W</option>
+              <option value="M">M</option>
+            </select>
+            <input
+              placeholder={this.props.intl.messages.patientBirthDay}
+              type="date"
+              value={getISODate(this.state.birthValue)}
+              className="form-control"
+              ref="birthDay"
+              onChange={this.handleBirthDayChange}
+            />
+            <input
+              placeholder={this.props.intl.messages.patientPhone}
+              type="phone"
+              value={this.state.phoneValue}
+              className="form-control"
+              ref="phone"
+              onChange={this.handlePhoneChange}
+            />
+            <input
+              placeholder={this.props.intl.messages.patientEmail}
+              type="email"
+              value={this.state.emailValue}
+              className="form-control"
+              ref="email"
+              onChange={this.handleEmailChange}
+            />
+            <input
+              placeholder={this.props.intl.messages.patientAddress}
+              value={this.state.addressValue}
+              className="form-control"
+              ref="address"
+              onChange={this.handleAddressChange}
             />
           </div>
-          <div className="row form-group">
-            <textarea
-              placeholder={this.props.intl.messages.patientContent}
-              value={this.state.contentValue}
+          <div className={`${styles.PatientWidget__inputs} row form-group col-md-6`}>
+            <input
+              placeholder={this.props.intl.messages.patientCity}
+              value={this.state.cityValue}
               className="form-control"
-              rows={TEXTAREA_ROWS}
-              ref="content"
-              onChange={this.handleContentChange}
+              ref="city"
+              onChange={this.handleCityChange}
+            />
+            <input
+              placeholder={this.props.intl.messages.patientMaritalStatus}
+              value={this.state.maritalStatusValue}
+              className="form-control"
+              ref="maritalStatus"
+              onChange={this.handleMritalStatusChange}
+            />
+            <input
+              placeholder={this.props.intl.messages.patientCompany}
+              value={this.state.companyValue}
+              className="form-control"
+              ref="company"
+              onChange={this.handleCompanyChange}
+            />
+            <select className="form-control" ref="doctor" value={this.state.doctorValue} onChange={this.handleDoctorChange}>
+              <option>-- Doctor --</option>
+              <option value="DOC 1">DOC 1</option>
+              <option value="DOC 2">DOC 2</option>
+            </select>
+            <input
+              placeholder={this.props.intl.messages.patientInsurance}
+              value={this.state.insuranceValue}
+              className="form-control"
+              ref="insurance"
+              onChange={this.handleInsuranceChange}
             />
           </div>
-          <div
-            className={`col-sm-12 col-md-12 ${styles.PatientWidget__submit}`}
-          >
-            <a
-              className="btn btn-default"
-              href="#"
-              onClick={this.managePatient}
-            >
-              <FormattedMessage id="submit" />
-            </a>
-          </div>
+        </div>
+        <div className={`col-sm-12 col-md-12 ${styles.PatientWidget__submit}`}>
+          <a className="btn btn-default" href="#" onClick={this.managePatient}>
+            <FormattedMessage id="submit" />
+          </a>
         </div>
       </div>
     );

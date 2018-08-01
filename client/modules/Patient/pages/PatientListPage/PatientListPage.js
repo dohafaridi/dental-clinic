@@ -18,26 +18,126 @@ class PatientListPage extends Component {
     this.props.dispatch(fetchPatients());
 
     this.handlePatientWidgetSubmit = this.handlePatientWidgetSubmit.bind(this);
-    this.toggleShowPatientWidgetSection = this.toggleShowPatientWidgetSection.bind(this);
+    this.toggleShowPatientWidgetSection = this.toggleShowPatientWidgetSection.bind(
+      this
+    );
     this.handleAddPatient = this.handleAddPatient.bind(this);
     this.handleDeletePatient = this.handleDeletePatient.bind(this);
     this.handleEditPatient = this.handleEditPatient.bind(this);
   }
 
-  handlePatientWidgetSubmit(title, content) {
-    this.props.widgetValues.patientWidgetTitleIntId === 'editThePatient' // eslint-disable-line
-      ? this.handleEditPatient(title, content, this.props.widgetValues.cuid)
-      : this.handleAddPatient(title, content);
+  handlePatientWidgetSubmit(
+    firstName,
+    lastName,
+    sex,
+    birthDay,
+    phone,
+    email,
+    address,
+    city,
+    maritalStatus,
+    company,
+    doctor,
+    insurance
+  ) {
+    this.props.widgetValues.patientWidgetTitleIntId === "editThePatient" // eslint-disable-line
+      ? this.handleEditPatient(
+          firstName,
+          lastName,
+          sex,
+          birthDay,
+          phone,
+          email,
+          address,
+          city,
+          maritalStatus,
+          company,
+          doctor,
+          insurance,
+          this.props.widgetValues.cuid
+        )
+      : this.handleAddPatient(
+          firstName,
+          lastName,
+          sex,
+          birthDay,
+          phone,
+          email,
+          address,
+          city,
+          maritalStatus,
+          company,
+          doctor,
+          insurance
+        );
   }
 
-  handleAddPatient(title, content) {
+  handleAddPatient(
+    firstName,
+    lastName,
+    sex,
+    birthDay,
+    phone,
+    email,
+    address,
+    city,
+    maritalStatus,
+    company,
+    doctor,
+    insurance
+  ) {
     this.props.dispatch(toggleShowPatientWidget());
-    this.props.dispatch(addPatientRequest({ title, content }));
+    this.props.dispatch(
+      addPatientRequest({
+        firstName,
+        lastName,
+        sex,
+        birthDay,
+        phone,
+        email,
+        address,
+        city,
+        maritalStatus,
+        company,
+        doctor,
+        insurance,
+      })
+    );
   }
 
-  handleEditPatient(title, content, cuid) {
+  handleEditPatient(
+    firstName,
+    lastName,
+    sex,
+    birthDay,
+    phone,
+    email,
+    address,
+    city,
+    maritalStatus,
+    company,
+    doctor,
+    insurance,
+    cuid
+  ) {
     this.props.dispatch(toggleShowPatientWidget());
-    this.props.dispatch(editPatientRequest(title, content, cuid));
+    this.props.dispatch(
+      editPatientRequest(
+        firstName,
+        lastName,
+        sex,
+        birthDay,
+        phone,
+        email,
+        address,
+        city,
+        maritalStatus,
+        company,
+        doctor,
+        insurance,
+        cuid
+      )
+    );
   }
 
   toggleShowPatientWidgetSection(patient) {
@@ -45,8 +145,18 @@ class PatientListPage extends Component {
     this.props.dispatch(
       setDefaultPatientWidgetValues({
         patientWidgetTitleIntId: 'editThePatient',
-        titleInputValue: patient.title,
-        contentTextareaValue: patient.content,
+        firstNameInputValue: patient.firstName,
+        lastNameInputValue: patient.lastName,
+        sexInputValue: patient.sex,
+        birthDayInputValue: patient.birthDay,
+        phoneInputValue: patient.phone,
+        emailInputValue: patient.email,
+        addressInputValue: patient.address,
+        cityInputValue: patient.city,
+        maritalStatusInputValue: patient.maritalStatus,
+        companyInputValue: patient.company,
+        doctorInputValue: patient.doctor,
+        insuranceInputValue: patient.insurance,
         cuid: patient.cuid,
       })
     );

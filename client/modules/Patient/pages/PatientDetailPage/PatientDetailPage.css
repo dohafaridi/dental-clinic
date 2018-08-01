@@ -2,7 +2,7 @@
   padding: 50px 0;
 }
 
-.PatientDetailPage__title {
+.PatientDetailPage__fullName {
   color: #000;
   margin: 0;
   font-size: 23px;
@@ -12,7 +12,7 @@
   text-transform: uppercase;
 }
 
-.PatientDetailPage__content {
+.PatientDetailPage__field {
   color: #b0b0b0;
   font-size: 17px;
   line-height: 2;

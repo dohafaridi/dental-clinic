@@ -35,18 +35,43 @@ export const getPatient = (req, res) =>
  * @returns void
  */
 export const addPatient = (req, res) => {
-  if (!req.body.patient.title || !req.body.patient.content) {
+  if (
+    !req.body.patient.firstName ||
+    !req.body.patient.lastName ||
+    !req.body.patient.sex ||
+    !req.body.patient.birthDay ||
+    !req.body.patient.phone ||
+    !req.body.patient.email ||
+    !req.body.patient.address ||
+    !req.body.patient.city ||
+    !req.body.patient.maritalStatus ||
+    !req.body.patient.company ||
+    !req.body.patient.doctor ||
+    !req.body.patient.insurance
+  ) {
     res.status(403).end();
   }
 
   const newPatient = new Patient(req.body.patient);
 
   // Let's sanitize inputs
-  newPatient.title = sanitizeHtml(newPatient.title);
-  newPatient.content = sanitizeHtml(newPatient.content);
-
-  newPatient.slug = slug(newPatient.title.toLowerCase(), { lowercase: true });
+  newPatient.firstName = sanitizeHtml(newPatient.firstName);
+  newPatient.lastName = sanitizeHtml(newPatient.lastName);
+  newPatient.sex = sanitizeHtml(newPatient.sex);
+  newPatient.birthDay = newPatient.birthDay;
+  newPatient.phone = sanitizeHtml(newPatient.phone);
+  newPatient.email = sanitizeHtml(newPatient.email);
+  newPatient.address = sanitizeHtml(newPatient.address);
+  newPatient.city = sanitizeHtml(newPatient.city);
+  newPatient.maritalStatus = sanitizeHtml(newPatient.maritalStatus);
+  newPatient.company = sanitizeHtml(newPatient.company);
+  newPatient.doctor = sanitizeHtml(newPatient.doctor);
+  newPatient.insurance = sanitizeHtml(newPatient.insurance);
+  newPatient.slug = slug(newPatient.firstName.toLowerCase(), {
+    lowercase: true,
+  });
   newPatient.cuid = cuid();
+
   newPatient.save(
     (err, saved) =>
       (err ? res.status(500).send(err) : res.json({ patient: saved }))
@@ -81,19 +106,27 @@ export const editPatient = (req, res) => {
   const query = { cuid: req.params.cuid };
   const newValues = {
     $set: {
-      title: req.body.patient.title,
-      content: req.body.patient.content,
-      slug: slug(req.body.patient.title, { lowercase: true }),
+      firstName: sanitizeHtml(req.body.patient.firstName),
+      lastName: sanitizeHtml(req.body.patient.lastName),
+      sex: sanitizeHtml(req.body.patient.sex),
+      birthDay: req.body.patient.birthDay,
+      phone: sanitizeHtml(req.body.patient.phone),
+      email: sanitizeHtml(req.body.patient.email),
+      address: sanitizeHtml(req.body.patient.address),
+      city: sanitizeHtml(req.body.patient.city),
+      maritalStatus: sanitizeHtml(req.body.patient.maritalStatus),
+      company: sanitizeHtml(req.body.patient.company),
+      doctor: sanitizeHtml(req.body.patient.doctor),
+      insurance: sanitizeHtml(req.body.patient.insurance),
+      slug: slug(req.body.patient.firstName, { lowercase: true }),
     },
   };
   Patient.findOneAndUpdate(
     query,
     newValues,
     (err, saved) =>
-      (
-        err
+      (err
         ? res.status(500).send(err)
-        : res.json({ patient: Object.assign(saved, {}, newValues.$set) })
-      )
+        : res.json({ patient: Object.assign(saved, {}, newValues.$set) }))
   );
 };

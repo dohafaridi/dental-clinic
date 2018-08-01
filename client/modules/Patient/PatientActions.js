@@ -29,8 +29,18 @@ export const addPatientRequest = patient => {
   return dispatch => {
     return callApi('patients', 'post', {
       patient: {
-        title: patient.title,
-        content: patient.content,
+        firstName: patient.firstName,
+        lastName: patient.lastName,
+        sex: patient.sex,
+        birthDay: patient.birthDay,
+        phone: patient.phone,
+        email: patient.email,
+        address: patient.address,
+        city: patient.city,
+        maritalStatus: patient.maritalStatus,
+        company: patient.company,
+        doctor: patient.doctor,
+        insurance: patient.insurance,
       },
     }).then(res => dispatch(addPatient(res.patient)));
   };
@@ -43,12 +53,37 @@ export const editPatient = patient => {
   };
 };
 
-export const editPatientRequest = (title, content, cuid) => {
-  return (dispatch) => {
+export const editPatientRequest = (
+  firstName,
+  lastName,
+  sex,
+  birthDay,
+  phone,
+  email,
+  address,
+  city,
+  maritalStatus,
+  company,
+  doctor,
+  insurance,
+  cuid
+) => {
+  return dispatch => {
     return callApi(`patients/${cuid}`, 'post', {
       patient: {
-        title,
-        content,
+        firstName,
+        lastName,
+        sex,
+        birthDay,
+        phone,
+        email,
+        address,
+        city,
+        maritalStatus,
+        company,
+        doctor,
+        insurance,
+        cuid,
       },
     }).then(res => dispatch(editPatient(res.patient)));
   };
@@ -62,7 +97,9 @@ export const deletePatient = cuid => {
 };
 
 export const deletePatientRequest = cuid => {
-  return (dispatch) => {
-    return callApi(`patients/${cuid}`, 'delete').then(() => dispatch(deletePatient(cuid)));
+  return dispatch => {
+    return callApi(`patients/${cuid}`, 'delete').then(() =>
+      dispatch(deletePatient(cuid))
+    );
   };
 };

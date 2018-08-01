@@ -2,14 +2,27 @@
   padding: 20px 0;
 }
 
-.PatientListItem__title,
-.PatientListItem__title a {
+.PatientListItem__information,
+.PatientListItem__information a {
   color: #000;
   margin: 0;
   font-size: 23px;
   font-weight: 600;
   text-align: left;
   padding-bottom: 18px;
+}
+
+.PatientListItem__information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.PatientListItem__information--fullName {
+
+}
+
+.PatientListItem__information--doctor {
+
 }
 
 .PatientListItem__content {

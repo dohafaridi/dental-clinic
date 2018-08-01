@@ -16,6 +16,16 @@
   color: #a3a3a3;
 }
 
+.PatientWidget input,
+.PatientWidget select {
+  margin-bottom: 20px;
+}
+
+.PatientWidget__inputs {
+  width: 49%;
+  margin: 0 .5%;
+}
+
 .PatientWidget__submit {
   text-align: center;
 }

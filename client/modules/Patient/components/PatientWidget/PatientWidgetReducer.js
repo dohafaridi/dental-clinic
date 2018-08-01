@@ -3,8 +3,18 @@ import { SET_DEFAULT_PATIENT_WIDGET_VALUES } from './PatientWidgetActions';
 const initialState = {
   defaultValues: {
     patientWidgetTitleIntId: 'createNewPatient',
-    titleInputValue: '',
-    contentTextareaValue: '',
+    firstNameInputValue: '',
+    lastNameInputValue: '',
+    sexInputValue: '',
+    birthDayInputValue: '',
+    phoneInputValue: '',
+    emailInputValue: '',
+    addressInputValue: '',
+    cityInputValue: '',
+    maritalStatusInputValue: '',
+    companyInputValue: '',
+    doctorInputValue: '',
+    insuranceInputValue: '',
     cuid: '',
   },
 };

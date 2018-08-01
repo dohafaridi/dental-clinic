@@ -65,8 +65,18 @@ export class App extends Component {
     this.props.dispatch(
       setDefaultPatientWidgetValues({
         patientWidgetTitleIntId: 'createNewPatient',
-        titleInputValue: '',
-        contentTextareaValue: '',
+        firstNameInputValue: '',
+        lastNameInputValue: '',
+        sexInputValue: '',
+        birthDayInputValue: '',
+        phoneInputValue: '',
+        emailInputValue: '',
+        addressInputValue: '',
+        cityInputValue: '',
+        maritalStatusInputValue: '',
+        companyInputValue: '',
+        doctorInputValue: '',
+        insuranceInputValue: '',
       })
     );
   }

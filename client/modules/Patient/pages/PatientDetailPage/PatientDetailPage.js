@@ -7,8 +7,16 @@ import { fetchPatient } from '../../PatientActions';
 
 const PatientDetailPage = ({ patient }) => (
   <div className={styles.PatientDetailPage}>
-    <h1 className={styles.PatientDetailPage__title}>{patient.title}</h1>
-    <div className={styles.PatientDetailPage__content}>{patient.content}</div>
+    <h1 className={styles.PatientDetailPage__fullName}>{patient.firstName} {patient.lastName}</h1>
+    <div className={styles.PatientDetailPage__field}>{patient.sex}</div>
+    <div className={styles.PatientDetailPage__field}>{patient.birthDay}</div>
+    <div className={styles.PatientDetailPage__field}>{patient.phone}</div>
+    <div className={styles.PatientDetailPage__field}>{patient.email}</div>
+    <div className={styles.PatientDetailPage__field}>{patient.address}</div>
+    <div className={styles.PatientDetailPage__field}>{patient.city}</div>
+    <div className={styles.PatientDetailPage__field}>{patient.maritalStatus}</div>
+    <div className={styles.PatientDetailPage__field}>{patient.company}</div>
+    <div className={styles.PatientDetailPage__field}>{patient.doctor}</div>
   </div>
 );
 
