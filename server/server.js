@@ -49,6 +49,7 @@ import { fetchComponentData } from './util/fetchData';
 import services from './routes/services.routes';
 import testimonials from './routes/testimonials.routes';
 import patients from './routes/patients.routes';
+import medicalTreatment from './routes/medicalTreatment.routes';
 import serverConfig from './config';
 
 // Set native promises as mongoose promise
@@ -75,6 +76,7 @@ app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use('/api', services);
 app.use('/api', testimonials);
 app.use('/api', patients);
+app.use('/medicalTreatment', medicalTreatment);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
