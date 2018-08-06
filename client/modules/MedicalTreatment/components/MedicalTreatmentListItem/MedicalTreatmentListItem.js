@@ -1,21 +1,23 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 import styles from './MedicalTreatmentListItem.css';
 
-const MAX_LENGTH = 300;
-const renderContent = content => content.substring(0, MAX_LENGTH);
+const getISODate = date => (date ? new Date(date).toISOString().slice(0, 10) : null);
 
 const MedicalTreatmentListItem = ({ medicalTreatment, onDelete, onEdit }) => (
   <article className={styles.MedicalTreatmentListItem}>
     <div className={styles.MedicalTreatmentListItem__title}>
-      <Link to={`/medicalTreatments/${medicalTreatment.slug}`} title={medicalTreatment.title}>
-        {medicalTreatment.title}
-      </Link>
+      {medicalTreatment.title}
     </div>
     <div className={styles.MedicalTreatmentListItem__content}>
-      {renderContent(medicalTreatment.content)}...
+      {medicalTreatment.content}
+    </div>
+    <div className={styles.MedicalTreatmentListItem__cost}>
+      {medicalTreatment.cost} DH
+    </div>
+    <div className={styles['MedicalTreatmentListItem__date-added']}>
+      {getISODate(new Date(medicalTreatment.dateAdded))}
     </div>
     <div className={styles.MedicalTreatmentListItem__links}>
       <a
@@ -32,12 +34,6 @@ const MedicalTreatmentListItem = ({ medicalTreatment, onDelete, onEdit }) => (
       >
         <FormattedMessage id="deleteMedicalTreatment" />
       </a>
-      <Link
-        to={`/medicalTreatments/${medicalTreatment.slug}`}
-        className={styles['MedicalTreatmentListItem__links--item']}
-      >
-        {<FormattedMessage id="readMore" />}
-      </Link>
     </div>
   </article>
 );

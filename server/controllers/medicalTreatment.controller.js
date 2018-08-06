@@ -23,9 +23,9 @@ export const getMedicalTreatments = (req, res) =>
  * @param res
  * @returns void
  */
-export const getMedicalTreatment = (req, res) =>
-  MedicalTreatment.findOne({ slug: req.params.slug }).exec(
-    (err, medicalTreatment) => (err ? res.status(500).send(err) : res.json({ medicalTreatment }))
+export const getMedicalTreatmentByPatientID = (req, res) =>
+  MedicalTreatment.find({ patientID: req.params.patientID }).exec(
+    (err, medicalTreatments) => (err ? res.status(500).send(err) : res.json({ medicalTreatments }))
   );
 
 /**
@@ -44,6 +44,8 @@ export const addMedicalTreatment = (req, res) => {
   // Let's sanitize inputs
   newMedicalTreatment.title = sanitizeHtml(newMedicalTreatment.title);
   newMedicalTreatment.content = sanitizeHtml(newMedicalTreatment.content);
+  newMedicalTreatment.cost = sanitizeHtml(newMedicalTreatment.cost);
+  newMedicalTreatment.patientID = sanitizeHtml(newMedicalTreatment.patientID);
 
   newMedicalTreatment.slug = slug(newMedicalTreatment.title.toLowerCase(), { lowercase: true });
   newMedicalTreatment.cuid = cuid();
@@ -83,6 +85,7 @@ export const editMedicalTreatment = (req, res) => {
     $set: {
       title: req.body.medicalTreatment.title,
       content: req.body.medicalTreatment.content,
+      cost: req.body.medicalTreatment.cost,
       slug: slug(req.body.medicalTreatment.title, { lowercase: true }),
     },
   };

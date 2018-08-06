@@ -6,8 +6,8 @@ const router = new Router();
 // Get all medicalTreatments
 router.route('/medicalTreatments').get(MedicalTreatmentController.getMedicalTreatments);
 
-// Get one medicalTreatment by slug
-router.route('/medicalTreatments/:slug').get(MedicalTreatmentController.getMedicalTreatment);
+// Get medicalTreatments by patientID
+router.route('/medicalTreatments/:patientID').get(MedicalTreatmentController.getMedicalTreatmentByPatientID);
 
 // Add a new MedicalTreatment
 router.route('/medicalTreatments').post(MedicalTreatmentController.addMedicalTreatment);

@@ -12,6 +12,8 @@ import testimonials from './modules/Testimonial/TestimonialReducer';
 import testimonialsWidget from './modules/Testimonial/components/TestimonialWidget/TestimonialWidgetReducer';
 import patients from './modules/Patient/PatientReducer';
 import patientsWidget from './modules/Patient/components/PatientWidget/PatientWidgetReducer';
+import medicalTreatments from './modules/MedicalTreatment/MedicalTreatmentReducer';
+import medicalTreatmentsWidget from './modules/MedicalTreatment/components/MedicalTreatmentWidget/MedicalTreatmentWidgetReducer';
 
 // Combine all reducers into one root reducer
 export default combineReducers({
@@ -23,4 +25,6 @@ export default combineReducers({
   testimonialsWidget,
   patients,
   patientsWidget,
+  medicalTreatments,
+  medicalTreatmentsWidget,
 });

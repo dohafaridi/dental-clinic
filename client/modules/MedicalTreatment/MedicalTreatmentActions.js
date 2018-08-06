@@ -17,13 +17,10 @@ export const addMedicalTreatments = medicalTreatments => ({
   medicalTreatments,
 });
 
-export const fetchMedicalTreatments = () => dispatch =>
-  callApi('medicalTreatments').then(res => {
+export const fetchMedicalTreatments = (patientID) => dispatch =>
+  callApi(`medicalTreatments/${patientID}`).then(res => {
     dispatch(addMedicalTreatments(res.medicalTreatments));
   });
-
-export const fetchMedicalTreatment = slug => dispatch =>
-  callApi(`medicalTreatments/${slug}`).then(res => dispatch(addMedicalTreatment(res.medicalTreatment)));
 
 export const addMedicalTreatmentRequest = medicalTreatment => {
   return dispatch => {
@@ -31,6 +28,8 @@ export const addMedicalTreatmentRequest = medicalTreatment => {
       medicalTreatment: {
         title: medicalTreatment.title,
         content: medicalTreatment.content,
+        cost: medicalTreatment.cost,
+        patientID: medicalTreatment.patientID,
       },
     }).then(res => dispatch(addMedicalTreatment(res.medicalTreatment)));
   };
@@ -43,12 +42,13 @@ export const editMedicalTreatment = medicalTreatment => {
   };
 };
 
-export const editMedicalTreatmentRequest = (title, content, cuid) => {
+export const editMedicalTreatmentRequest = (title, content, cost, cuid) => {
   return (dispatch) => {
     return callApi(`medicalTreatments/${cuid}`, 'post', {
       medicalTreatment: {
         title,
         content,
+        cost,
       },
     }).then(res => dispatch(editMedicalTreatment(res.medicalTreatment)));
   };

@@ -7,9 +7,9 @@ import styles from './MedicalTreatmentList.css';
 const MedicalTreatmentList = ({ medicalTreatments, handleDeleteMedicalTreatment, handleEditMedicalTreatment }) =>
   (medicalTreatments ? (
     <div className={styles.MedicalTreatmentList}>
-      <h1 className={styles.MedicalTreatmentList__title}>
+      <h2 className={styles.MedicalTreatmentList__title}>
         <FormattedMessage id="medicalTreatmentLabel" />
-      </h1>
+      </h2>
       {medicalTreatments.map(medicalTreatment => (
         <MedicalTreatmentListItem
           key={medicalTreatment.cuid}

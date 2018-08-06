@@ -3,9 +3,18 @@
 }
 
 .MedicalTreatmentList__title {
-  font-size: 74px;
+  font-size: 30px;
   font-weight: bold;
   text-transform: uppercase;
-  padding-bottom: 50px;
   color: #000;
+  text-align: center;
+}
+
+.MedicalTreatmentList__title:after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 20%;
+  background-color: #000;
+  margin: 40px auto;
 }

@@ -5,6 +5,7 @@ const initialState = {
     medicalTreatmentWidgetTitleIntId: 'createNewMedicalTreatment',
     titleInputValue: '',
     contentTextareaValue: '',
+    costInputValue: '',
     cuid: '',
   },
 };

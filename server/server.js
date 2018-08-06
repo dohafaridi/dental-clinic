@@ -76,7 +76,7 @@ app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use('/api', services);
 app.use('/api', testimonials);
 app.use('/api', patients);
-app.use('/medicalTreatment', medicalTreatment);
+app.use('/api', medicalTreatment);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

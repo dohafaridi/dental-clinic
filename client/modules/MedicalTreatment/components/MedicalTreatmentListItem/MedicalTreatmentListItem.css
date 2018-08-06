@@ -1,5 +1,11 @@
 .MedicalTreatmentListItem {
-  padding: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.MedicalTreatmentListItem:last-child {
+  margin: 0;
 }
 
 .MedicalTreatmentListItem__title,
@@ -39,7 +45,7 @@
 
 .MedicalTreatmentListItem__links--item span {
   display: inline-block;
-  width: 200px;
+  width: 220px;
   text-align: center;
   background: #000;
   color: yellow;
@@ -48,4 +54,15 @@
 
 .MedicalTreatmentListItem__links--item:hover span {
   color: #fff;
+}
+
+.MedicalTreatmentListItem__cost {
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.MedicalTreatmentListItem__date-added {
+  text-align: right;
+  font-weight: bold;
+  padding: 10px 0;
 }

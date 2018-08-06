@@ -14,18 +14,19 @@ export class MedicalTreatmentWidget extends Component {
     this.state = {
       titleValue: this.props.widgetValues.titleInputValue || '',
       contentValue: this.props.widgetValues.contentTextareaValue || '',
+      costValue: this.props.widgetValues.costInputValue || '',
     };
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleCostChange = this.handleCostChange.bind(this);
     this.manageMedicalTreatment = this.manageMedicalTreatment.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ titleValue: nextProps.widgetValues.titleInputValue });
-    this.setState({
-      contentValue: nextProps.widgetValues.contentTextareaValue,
-    });
+    this.setState({ contentValue: nextProps.widgetValues.contentTextareaValue });
+    this.setState({ costValue: nextProps.widgetValues.costInputValue });
   }
 
   handleTitleChange(event) {
@@ -36,6 +37,10 @@ export class MedicalTreatmentWidget extends Component {
     this.setState({ contentValue: event.target.value });
   }
 
+  handleCostChange(event) {
+    this.setState({ costValue: event.target.value });
+  }
+
   /**
    * manageMedicalTreatment could be used as helper in the process of adding or
    * editing a medicalTreatment, on both operation title and content are mandatory.
@@ -43,9 +48,12 @@ export class MedicalTreatmentWidget extends Component {
   manageMedicalTreatment() {
     const titleRef = this.refs.title;
     const contentRef = this.refs.content;
-    if (titleRef.value && contentRef.value) {
-      this.props.manageMedicalTreatment(titleRef.value, contentRef.value);
-      titleRef.value = contentRef.value = '';
+    const costRef = this.refs.cost;
+    const patientID = this.props.patientID;
+
+    if (titleRef.value && contentRef.value && costRef.value && patientID) {
+      this.props.manageMedicalTreatment(titleRef.value, contentRef.value, costRef.value, patientID);
+      titleRef.value = contentRef.value = costRef.value = '';
     }
   }
 
@@ -87,6 +95,15 @@ export class MedicalTreatmentWidget extends Component {
               onChange={this.handleContentChange}
             />
           </div>
+          <div className="row form-group">
+            <input
+              placeholder={this.props.intl.messages.medicalTreatmentCost}
+              value={this.state.costValue}
+              className="form-control"
+              ref="cost"
+              onChange={this.handleCostChange}
+            />
+          </div>
           <div
             className={`col-sm-12 col-md-12 ${styles.MedicalTreatmentWidget__submit}`}
           >
@@ -113,6 +130,7 @@ MedicalTreatmentWidget.propTypes = {
   manageMedicalTreatment: PropTypes.func.isRequired,
   showMedicalTreatmentWidget: PropTypes.bool.isRequired,
   widgetValues: PropTypes.object,
+  patientID: PropTypes.string,
   intl: PropTypes.object,
 };
 
