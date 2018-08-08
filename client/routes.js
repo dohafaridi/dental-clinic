@@ -23,6 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Testimonial/pages/TestimonialDetailPage/TestimonialDetailPage');
   require('./modules/Patient/pages/PatientListPage/PatientListPage');
   require('./modules/patient/pages/PatientDetailPage/PatientDetailPage');
+  require('./modules/Appointment/Appointment');
 }
 
 // react-router setup with code-splitting
@@ -103,6 +104,18 @@ export default (
           cb(
             null,
             require('./modules/Patient/pages/PatientDetailPage/PatientDetailPage')
+              .default
+          );
+        });
+      }}
+    />
+    <Route
+      path="/appointment"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(
+            null,
+            require('./modules/Appointment/Appointment')
               .default
           );
         });

@@ -14,6 +14,8 @@ import patients from './modules/Patient/PatientReducer';
 import patientsWidget from './modules/Patient/components/PatientWidget/PatientWidgetReducer';
 import medicalTreatments from './modules/MedicalTreatment/MedicalTreatmentReducer';
 import medicalTreatmentsWidget from './modules/MedicalTreatment/components/MedicalTreatmentWidget/MedicalTreatmentWidgetReducer';
+import appointments from './modules/Appointment/AppointmentReducer';
+import appointmentsWidget from './modules/Appointment/components/AppointmentWidget/AppointmentWidgetReducer';
 
 // Combine all reducers into one root reducer
 export default combineReducers({
@@ -27,4 +29,6 @@ export default combineReducers({
   patientsWidget,
   medicalTreatments,
   medicalTreatmentsWidget,
+  appointments,
+  appointmentsWidget,
 });

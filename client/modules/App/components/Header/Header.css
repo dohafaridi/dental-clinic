@@ -6,6 +6,27 @@
   width: 100%;
 }
 
+.Header__internal-pages {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('./images/header-banner.jpg') no-repeat 0 0;
+  background-size: cover;
+  position: relative;
+}
+
+.Header__internal-pages:before {
+  background: rgba(17, 17, 17, 0.5) none repeat scroll 0 0;
+  content: " ";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
 .Header__menu {
   display: inline-block;
   padding: 20px;
@@ -34,6 +55,10 @@
   font-size: 18px;
   padding-top: 9px;
   color: white;
+}
+
+.Header__internal-pages .Header__icons {
+  color: #000;
 }
 
 .Header__icons i:hover,

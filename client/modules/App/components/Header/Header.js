@@ -11,14 +11,22 @@ const Header = (props, context) => {
     <li
       key={lang}
       onClick={() => props.switchLanguage(lang)}
-      className={lang === props.intl.locale ? styles['Header__icons--language-switcher__active'] : ''}
+      className={
+        lang === props.intl.locale
+          ? styles['Header__icons--language-switcher__active']
+          : ''
+      }
     >
       {lang}
     </li>
   ));
 
+  const headerClasses = `${styles.Header} ${
+    context.router.isActive('/appointment', true) ? styles['Header__internal-pages'] : null
+  }`;
+
   return (
-    <header className={styles.Header}>
+    <header className={headerClasses}>
       <nav>
         <div className="container">
           <div className="row">
@@ -44,30 +52,28 @@ const Header = (props, context) => {
                   </a>
                 </div>
                 <div className={styles['Header__icons--language-switcher']}>
-                  <ul>
-                    {languageNodes}
-                  </ul>
+                  <ul>{languageNodes}</ul>
                 </div>
                 <span className={styles['Header__icons--slide-menu']}>
                   <i className="fa fa-align-left" aria-hidden="true" />
                 </span>
               </div>
               <div className={styles.Header__menu}>
-                {
-                  context.router.isActive('/services', true)
-                    ? <a href="#" onClick={props.toggleShowServiceWidget}><FormattedMessage id="addService" /></a>
-                    : null
-                }
-                {
-                  context.router.isActive('/testimonials', true)
-                    ? <a href="#" onClick={props.toggleShowTestimonialWidget}><FormattedMessage id="addTestimonial" /></a>
-                    : null
-                }
-                {
-                  context.router.isActive('/patients', true)
-                    ? <a href="#" onClick={props.toggleShowPatientWidget}><FormattedMessage id="addPatient" /></a>
-                    : null
-                }
+                {context.router.isActive('/services', true) ? (
+                  <a href="#" onClick={props.toggleShowServiceWidget}>
+                    <FormattedMessage id="addService" />
+                  </a>
+                ) : null}
+                {context.router.isActive('/testimonials', true) ? (
+                  <a href="#" onClick={props.toggleShowTestimonialWidget}>
+                    <FormattedMessage id="addTestimonial" />
+                  </a>
+                ) : null}
+                {context.router.isActive('/patients', true) ? (
+                  <a href="#" onClick={props.toggleShowPatientWidget}>
+                    <FormattedMessage id="addPatient" />
+                  </a>
+                ) : null}
               </div>
             </div>
           </div>

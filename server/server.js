@@ -49,6 +49,7 @@ import { fetchComponentData } from './util/fetchData';
 import services from './routes/services.routes';
 import testimonials from './routes/testimonials.routes';
 import patients from './routes/patients.routes';
+import appointments from './routes/appointments.routes';
 import medicalTreatment from './routes/medicalTreatment.routes';
 import serverConfig from './config';
 
@@ -77,6 +78,7 @@ app.use('/api', services);
 app.use('/api', testimonials);
 app.use('/api', patients);
 app.use('/api', medicalTreatment);
+app.use('/api', appointments);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

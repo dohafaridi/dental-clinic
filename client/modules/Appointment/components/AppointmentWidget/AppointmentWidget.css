@@ -1,0 +1,71 @@
+.AppointmentWidget {
+  margin: 50px 0;
+}
+
+.AppointmentWidget__title {
+  font-size: 40px;
+  text-align: center;
+  font-weight: 100;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+
+.AppointmentWidget__description {
+  font-size: 15px;
+  text-align: center;
+  line-height: 30px;
+  color: #a3a3a3;
+  padding: 10px 0 40px;
+}
+
+.AppointmentWidget__content {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.AppointmentWidget input {
+  height: 58px;
+  font-size: 16px;
+  border-radius: 0;
+  margin-bottom: 10px;
+  background: white;
+  padding: 20px;
+  font-weight: normal;
+
+}
+
+.AppointmentWidget textarea {
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.AppointmentWidget__submit {
+  padding: 0;
+  text-align: center;
+}
+
+.AppointmentWidget__submit a {
+  text-align: center;
+  height: 50px;
+  border: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 200;
+  padding: 10px 25px;
+  margin-top: 27px;
+  border-radius: 0;
+  background: black;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.AppointmentWidget__submit a:hover {
+  background: rgb(255, 255, 0);
+  color: #888888;
+  font-weight: 400;
+}
