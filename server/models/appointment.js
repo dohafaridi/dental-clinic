@@ -6,7 +6,7 @@ const AppointmentSchema = new Schema({
   reason: { type: 'String', required: true },
   appointmentDate: { type: 'Date', default: Date.now, required: true },
   appointmentHour: { type: 'string', required: true },
-  patientID: { type: 'String', required: true, default: '5b6868db160c276c9cde1fe1' },
+  patientID: { type: 'String', required: true, default: '5b6082a0bccc0d4aac848bea' },
 });
 
 export default mongoose.model('Appointment', AppointmentSchema);

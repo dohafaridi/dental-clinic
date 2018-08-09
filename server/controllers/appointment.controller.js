@@ -17,14 +17,14 @@ export const getAppointments = (req, res) =>
     );
 
 /**
- * Get a single appointment
+ * Get appointments by patientID
  * @param req
  * @param res
  * @returns void
  */
-export const getAppointment = (req, res) =>
-  Appointment.findOne({ patientID: req.params.patientID }).exec(
-    (err, appointment) => (err ? res.status(500).send(err) : res.json({ appointment }))
+export const getAppointmentsByPatientID = (req, res) =>
+  Appointment.find({ patientID: req.params.patientID }).exec(
+    (err, appointments) => (err ? res.status(500).send(err) : res.json({ appointments }))
   );
 
 /**

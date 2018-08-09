@@ -1,21 +1,25 @@
 .AppointmentListItem {
   padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-.AppointmentListItem__title,
-.AppointmentListItem__title a {
+.AppointmentListItem__reason {
   color: #000;
   margin: 0;
   font-size: 23px;
   font-weight: 600;
   text-align: left;
   padding-bottom: 18px;
+  width: 50%;
 }
 
 .AppointmentListItem__content {
   color: #b0b0b0;
   font-size: 17px;
   line-height: 2;
+  width: 50%;
+  text-align: right;
 }
 
 .AppointmentListItem__links {

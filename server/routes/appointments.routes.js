@@ -7,7 +7,7 @@ const router = new Router();
 router.route('/appointments').get(AppointmentController.getAppointments);
 
 // Get one appointment by patientID
-router.route('/appointments/:patientID').get(AppointmentController.getAppointment);
+router.route('/appointments/:patientID').get(AppointmentController.getAppointmentsByPatientID);
 
 // Add a new Appointment
 router.route('/appointments').post(AppointmentController.addAppointment);

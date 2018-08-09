@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import MedicalTreatment from '../../../MedicalTreatment/MedicalTreatment';
+import Appointment from '../../../Appointment/Appointment';
 import { fetchPatient } from '../../PatientActions';
 
 import styles from './PatientDetailPage.css';
@@ -19,6 +20,7 @@ const PatientDetailPage = ({ patient }) => (
     <div className={styles.PatientDetailPage__field}>{patient.company}</div>
     <div className={styles.PatientDetailPage__field}>{patient.doctor}</div>
     <MedicalTreatment patientID={patient._id} />
+    <Appointment patientID={patient._id} />
   </div>
 );
 

@@ -50,6 +50,7 @@ export default {
     patientDoctor: 'Doctor',
     patientInsurance: 'Insurance',
     appointmentReason: 'Reason',
+    appointmentList: 'Liste de rendez-vous',
     appointmentDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac turpis a orci placerat ornare in eget odio. Ut vitae venenatis metus. Aliquam metus sapien, vulputate eu erat vitae, elementum lacinia erat. Mauris nec iaculis mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
     submittedAppointmentMsg: 'Votre prise de rendez-vous à été validé, merci de venir à l\'heure',
     create: 'create',
