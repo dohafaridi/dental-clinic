@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
@@ -8,6 +9,8 @@ import { addAppointmentRequest } from '../../AppointmentActions';
 import styles from './AppointmentWidget.css';
 
 const TEXTAREA_ROWS = '10';
+
+const isAdmin = true;
 
 export class AppointmentWidget extends Component {
   constructor(props) {
@@ -123,6 +126,13 @@ export class AppointmentWidget extends Component {
     return (
       <div className={styles.AppointmentWidget}>
         <div className="container">
+          {isAdmin ? (
+            <div className={styles.AppointmentWidget__link}>
+              <Link to="/appointments">
+                <FormattedMessage id="appointmentList" />
+              </Link>
+            </div>
+          ) : null}
           <h2 className={styles.AppointmentWidget__title}>
             <FormattedMessage id="appointmentLabel" />
           </h2>

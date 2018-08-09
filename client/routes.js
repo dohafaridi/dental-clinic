@@ -121,5 +121,17 @@ export default (
         });
       }}
     />
+    <Route
+      path="/appointments"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(
+            null,
+            require('./modules/Appointment/Appointment')
+              .default
+          );
+        });
+      }}
+    />
   </Route>
 );

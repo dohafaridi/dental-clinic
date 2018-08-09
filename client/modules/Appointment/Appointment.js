@@ -1,19 +1,29 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchAppointments } from './AppointmentActions';
+import {
+  fetchAppointments,
+  fetchAppointmentsByPatientID,
+} from './AppointmentActions';
 import AppointmentList from './components/AppointmentList';
 import AppointmentWidget from './components/AppointmentWidget/AppointmentWidget';
 
 class Appointment extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchAppointments(this.props.patientID));
+    const funcToDispatch = () =>
+      (
+      this.props.patientID
+        ? fetchAppointmentsByPatientID(this.props.patientID)
+        : fetchAppointments()
+      );
+    this.props.dispatch(funcToDispatch());
   }
 
   render() {
     return (
       <div className="Appointment">
-        {this.props.location && this.props.location.pathname === '/appointment' ? (
+        {this.props.location &&
+        this.props.location.pathname === '/appointment' ? (
           <AppointmentWidget />
         ) : (
           <AppointmentList appointments={this.props.appointments} />

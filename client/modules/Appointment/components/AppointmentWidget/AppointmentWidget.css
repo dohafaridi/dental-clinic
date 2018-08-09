@@ -64,6 +64,31 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.AppointmentWidget__link {
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.AppointmentWidget__link a {
+  display: block;
+  font-weight: bold;
+  width: 200px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  height: 50px;
+  line-height: 13px;
+  color: #000;
+  padding: 20px;
+  border: 2px solid #000;
+}
+
+.AppointmentWidget__link a:hover {
+  border-color: yellow;
+}
+
 .AppointmentWidget__submit a:hover {
   background: rgb(255, 255, 0);
   color: #888888;

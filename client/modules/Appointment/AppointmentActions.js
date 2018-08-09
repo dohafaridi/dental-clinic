@@ -17,8 +17,13 @@ export const addAppointments = appointments => ({
   appointments,
 });
 
-export const fetchAppointments = patientID => dispatch =>
+export const fetchAppointmentsByPatientID = patientID => dispatch =>
   callApi(`appointments/${patientID}`).then(res => {
+    dispatch(addAppointments(res.appointments));
+  });
+
+export const fetchAppointments = () => dispatch =>
+  callApi('appointments/').then(res => {
     dispatch(addAppointments(res.appointments));
   });
 
