@@ -1,0 +1,49 @@
+.AboutUs {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 78px;
+  padding-bottom: 108px;
+  text-align: center;
+  background: white;
+}
+
+.AboutUs__tilte {
+  font-size: 74px;
+  font-weight: 100;
+  padding-bottom: 48px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.56);
+  font-family: "Montserrat", sans-serif;
+}
+
+.AboutUs__content {
+  font-size: 23px;
+  line-height: 45px;
+  padding-bottom: 53px;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.AboutUs__chevron a {
+  display: block;
+  width: 63px;
+  height: 62px;
+  padding: 0;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 100px;
+  background: #ffff00;
+  margin: 0 auto;
+}
+
+.AboutUs__chevron a:hover {
+  background: rgba(255, 255, 0, 0.4);
+}
+
+.AboutUs__chevron span {
+  font-size: 57px;
+  font-weight: 300;
+  color: black;
+  padding: 0 15px;
+  line-height: 61px;
+}
