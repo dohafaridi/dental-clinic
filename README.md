@@ -17,7 +17,7 @@ Make sure you have Node.js and MongoDB Community Edition ([instructions](https:/
 - Run `mongod`
 - `npm run start` to start the local server
 
-Your app should now be running on localhost:8000.
+The APP should now be running on localhost:8000.
 
 # Contribution
 
