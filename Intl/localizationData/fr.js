@@ -2,6 +2,7 @@ export default {
   locale: 'fr',
   messages: {
     siteTitle: 'Cabinet dentaire',
+    HomeBannerSlogan: 'bienvenue  au  <span>dental union</span><br />le meilleur traitement de<br /><span>qualité.</span>',
     addService: 'Ajouter un service',
     addPatient: 'Add Patient',
     addTestimonial: 'Ajouter un témoignage',

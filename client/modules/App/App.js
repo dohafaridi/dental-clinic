@@ -82,6 +82,7 @@ export class App extends Component {
   }
 
   render() {
+    const childrenClassName = this.props.location.pathname === '/' ? '' : 'container';
     return (
       <div>
         {this.state.isMounted &&
@@ -110,7 +111,9 @@ export class App extends Component {
             toggleShowTestimonialWidget={this.toggleShowTestimonialWidgetSection}
             toggleShowPatientWidget={this.toggleShowPatientWidgetSection}
           />
-          <div className="container">{this.props.children}</div>
+          <div className={childrenClassName}>
+            {this.props.children}
+          </div>
           <Footer />
         </div>
       </div>
@@ -122,6 +125,7 @@ App.propTypes = {
   children: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
+  location: PropTypes.object,
 };
 
 // Retrieve data from store as props

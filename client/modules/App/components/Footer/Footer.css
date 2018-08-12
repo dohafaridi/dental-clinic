@@ -53,6 +53,25 @@
   text-align: center;
 }
 
+.Footer__logo i {
+  color: yellow;
+  font-size: 50px;
+}
+
+.Footer__logo-slogan {
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  padding-top: 20px;
+}
+
+.Footer__logo-slogan span {
+  color: yellow;
+}
+
 .Footer p a {
   padding: 0;
 }

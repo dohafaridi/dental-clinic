@@ -1,19 +1,43 @@
 .Header {
-  padding: 10px 0;
-  background: #000;
+  padding: 30px 0;
   background-size: cover;
   z-index: 100;
   width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.Header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.Header__logo i {
+  color: yellow;
+  font-size: 50px;
+}
+
+.Header__logo-slogan {
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  padding-left: 20px;
+}
+
+.Header__logo-slogan span {
+  color: yellow;
 }
 
 .Header__internal-pages {
+  position: relative;
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: url('./images/header-banner.jpg') no-repeat 0 0;
-  background-size: cover;
-  position: relative;
 }
 
 .Header__internal-pages:before {

@@ -2,6 +2,7 @@ export default {
   locale: 'en',
   messages: {
     siteTitle: 'Dental clinic',
+    HomeBannerSlogan: 'welcome  to  <span>union </span>dental<br />the <span>best</span>quality<br /><span>treatment</span>.',
     addService: 'Add Service',
     addTestimonial: 'Add Testimonial',
     addPatient: 'Add Patient',

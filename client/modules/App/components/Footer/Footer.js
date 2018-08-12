@@ -4,7 +4,6 @@ import { FormattedMessage } from 'react-intl';
 
 // Import Style
 import styles from './Footer.css';
-import logo from './images/logo.png';
 
 const Footer = () => {
   return (
@@ -48,7 +47,10 @@ const Footer = () => {
         </div>
         <div className={styles.Footer__logo}>
           <Link to="/">
-            <img src={logo} alt="footer-logo" />
+            <i className="Header__logo-fa fas fa-tooth" aria-hidden="true" />
+            <div className={styles['Footer__logo-slogan']}>
+              union <span>dental</span>
+            </div>
           </Link>
         </div>
       </div>

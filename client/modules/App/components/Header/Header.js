@@ -4,7 +4,6 @@ import { FormattedMessage } from 'react-intl';
 
 // Import Style
 import styles from './Header.css';
-import logo from './images/logo.png';
 
 const Header = (props, context) => {
   const languageNodes = props.intl.enabledLanguages.map(lang => (
@@ -22,7 +21,7 @@ const Header = (props, context) => {
   ));
 
   const headerClasses = `${styles.Header} ${
-    context.router.isActive('/appointment', true) ? styles['Header__internal-pages'] : null
+    context.router.isActive('/', true) ? '' : styles['Header__internal-pages']
   }`;
 
   return (
@@ -30,25 +29,25 @@ const Header = (props, context) => {
       <nav>
         <div className="container">
           <div className="row">
-            <div className="col-xs-2 col-md-1">
-              <Link to="/">
-                <img src={logo} alt="logo" />
+            <div className="col-xs-5 col-md-5">
+              <Link to="/" className={styles.Header__logo}>
+                <i className="Header__logo-fa fas fa-tooth" aria-hidden="true" />
+                <div className={styles['Header__logo-slogan']}>
+                  union <span>dental</span>
+                </div>
               </Link>
             </div>
-            <div className="col-xs-10 col-md-11">
+            <div className="col-xs-7 col-md-7">
               <div className={styles.Header__icons}>
                 <div className={styles['Header__icons--social']}>
                   <a href="#">
-                    <i className="fa fa-facebook-square" aria-hidden="true" />
+                    <i className="fab fa-facebook-f" aria-hidden="true" />
                   </a>
                   <a href="#">
-                    <i className="fa fa-twitter" aria-hidden="true" />
+                    <i className="fab fa-twitter" aria-hidden="true" />
                   </a>
                   <a href="#">
-                    <i className="fa fa-500px" aria-hidden="true" />
-                  </a>
-                  <a href="#">
-                    <i className="fa fa-pinterest" aria-hidden="true" />
+                    <i className="fab fa-instagram" aria-hidden="true" />
                   </a>
                 </div>
                 <div className={styles['Header__icons--language-switcher']}>
