@@ -10,22 +10,33 @@
 .PatientWidget__title {
   font-size: 30px;
   text-align: center;
-  font-weight: 100;
+  font-weight: bold;
   text-transform: uppercase;
-  padding-bottom: 20px;
-  color: #a3a3a3;
-}
-
-.PatientWidget input,
-.PatientWidget select {
-  margin-bottom: 20px;
-}
-
-.PatientWidget__inputs {
-  width: 49%;
-  margin: 0 .5%;
+  padding-bottom: 40px;
 }
 
 .PatientWidget__submit {
+  padding: 0;
   text-align: center;
+}
+
+.PatientWidget__submit a {
+  text-align: center;
+  height: 50px;
+  border: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 200;
+  padding: 10px 25px;
+  margin-top: 27px;
+  border-radius: 0;
+  background: black;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.PatientWidget__submit a:hover {
+  background: rgb(255, 255, 0);
+  color: #888888;
+  font-weight: 400;
 }

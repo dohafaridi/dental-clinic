@@ -182,11 +182,13 @@ export class PatientWidget extends Component {
 
     return (
       <div className={cls}>
-        <div className="container">
+        {this.props.isAppointmentPage ? null : (
           <h2 className={styles.PatientWidget__title}>
             {widgetTitleComponent}
           </h2>
-          <div className={`${styles.PatientWidget__inputs} row form-group col-md-6`}>
+        )}
+        <div className="row form-group">
+          <div className="col-sm-6 col-md-6">
             <input
               placeholder={this.props.intl.messages.patientFirstName}
               value={this.state.firstNameValue}
@@ -201,7 +203,12 @@ export class PatientWidget extends Component {
               ref="lastName"
               onChange={this.handleLastNameChange}
             />
-            <select className="form-control" ref="sex" value={this.state.sexValue} onChange={this.handleSexChange}>
+            <select
+              className="form-control"
+              ref="sex"
+              value={this.state.sexValue}
+              onChange={this.handleSexChange}
+            >
               <option>-- SEX --</option>
               <option value="W">W</option>
               <option value="M">M</option>
@@ -238,7 +245,7 @@ export class PatientWidget extends Component {
               onChange={this.handleAddressChange}
             />
           </div>
-          <div className={`${styles.PatientWidget__inputs} row form-group col-md-6`}>
+          <div className="col-sm-6 col-md-6">
             <input
               placeholder={this.props.intl.messages.patientCity}
               value={this.state.cityValue}
@@ -260,7 +267,12 @@ export class PatientWidget extends Component {
               ref="company"
               onChange={this.handleCompanyChange}
             />
-            <select className="form-control" ref="doctor" value={this.state.doctorValue} onChange={this.handleDoctorChange}>
+            <select
+              className="form-control"
+              ref="doctor"
+              value={this.state.doctorValue}
+              onChange={this.handleDoctorChange}
+            >
               <option>-- Doctor --</option>
               <option value="DOC 1">DOC 1</option>
               <option value="DOC 2">DOC 2</option>
@@ -286,12 +298,14 @@ export class PatientWidget extends Component {
 
 const mapStateToProps = state => ({
   widgetValues: state.patientsWidget.defaultValues,
+  patients: state.patients.data,
   intl: state.intl,
 });
 
 PatientWidget.propTypes = {
   managePatient: PropTypes.func.isRequired,
   showPatientWidget: PropTypes.bool.isRequired,
+  isAppointmentPage: PropTypes.bool,
   widgetValues: PropTypes.object,
   intl: PropTypes.object,
 };

@@ -49,7 +49,7 @@ const Footer = () => {
           <Link to="/">
             <i className="Header__logo-fa fas fa-tooth" aria-hidden="true" />
             <div className={styles['Footer__logo-slogan']}>
-              union <span>dental</span>
+              dental <span>clinic</span>
             </div>
           </Link>
         </div>

@@ -31,6 +31,17 @@ html {
   background-color: transparent;
 }
 
+input[class],
+select[class] {
+  height: 58px;
+  font-size: 16px;
+  border-radius: 0;
+  margin-bottom: 15px;
+  background: white;
+  padding: 18px;
+  font-weight: normal;
+}
+
 .container {
   margin: 0 auto;
 }

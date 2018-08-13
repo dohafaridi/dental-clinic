@@ -33,7 +33,7 @@ const Header = (props, context) => {
               <Link to="/" className={styles.Header__logo}>
                 <i className="Header__logo-fa fas fa-tooth" aria-hidden="true" />
                 <div className={styles['Header__logo-slogan']}>
-                  union <span>dental</span>
+                  dental <span>clinic</span>
                 </div>
               </Link>
             </div>

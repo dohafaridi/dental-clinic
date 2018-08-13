@@ -37,6 +37,7 @@ export const addAppointmentRequest = appointment => {
         reason: appointment.reason,
         appointmentDate: appointment.appointmentDate,
         appointmentHour: appointment.appointmentHour,
+        patientID: appointment.patientID,
       },
     }).then(res => dispatch(addAppointment(res.appointment)));
   };

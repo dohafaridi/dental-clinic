@@ -2,6 +2,10 @@
   margin: 50px 0;
 }
 
+.PatientWidget {
+  margin: 0;
+}
+
 .AppointmentWidget__title {
   font-size: 40px;
   text-align: center;
@@ -64,6 +68,12 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.AppointmentWidget__submit a:hover {
+  background: rgb(255, 255, 0);
+  color: #888888;
+  font-weight: 400;
+}
+
 .AppointmentWidget__link {
   text-align: right;
   display: flex;
@@ -87,10 +97,4 @@
 
 .AppointmentWidget__link a:hover {
   border-color: yellow;
-}
-
-.AppointmentWidget__submit a:hover {
-  background: rgb(255, 255, 0);
-  color: #888888;
-  font-weight: 400;
 }
