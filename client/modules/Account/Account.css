@@ -1,0 +1,33 @@
+.Account {
+  padding-bottom: 30px;
+}
+
+.Account__button {
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.Account__button span {
+  cursor: pointer;
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  background: #000;
+  color: yellow;
+  padding: 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+}
+.MedicalTreatment__add a span {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  background: #000;
+  color: yellow;
+  padding: 10px 0;
+}
+
+.Account__button:hover span {
+  color: #fff;
+}
