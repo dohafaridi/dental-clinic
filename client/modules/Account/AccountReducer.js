@@ -5,7 +5,7 @@ import {
 
 const initialState = {
   data: {
-    loggedInPatientID: null,
+    patientID: null,
     userName: null,
     password: null,
     isActiveAccount: true,
@@ -16,7 +16,7 @@ const AccountReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ACCOUNT:
       return {
-        data: [action.account, ...state.data],
+        data: Object.assign({}, state.data, action.account),
       };
 
     case EDIT_ACCOUNT:

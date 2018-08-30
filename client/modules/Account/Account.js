@@ -13,29 +13,29 @@ class Account extends Component {
   }
 
   handleCreateClick() {
-    const { email, patientID } = this.props.patient;
+    const { email, _id } = this.props.patient;
     const account = {
       userName: email,
       password: 'TODO',
-      patientID,
+      patientID: _id,
     };
     this.props.dispatch(addAccountRequest(account));
   }
 
   render() {
-    const createAnAccount = (
-      <div className={styles.Account__button} onClick={this.handleCreateClick}>
-          <FormattedMessage id="createAnAccount" />
-      </div>
-    );
-    const toggleActivateAnAccount = (
-      <div className={styles.Account__button} onClick={this.handleCreateClick}>
-          {this.props.account.userName} / {this.props.account.password}
-      </div>
-    );
     return (
       <div className={styles.Account}>
-        {this.props.account.loggedInPatientID ? toggleActivateAnAccount :  createAnAccount}
+        {this.props.account.patientID ?
+          ( 
+            <div className={styles.Account__button} onClick={this.handleCreateClick}>
+                {this.props.account.userName} / {this.props.account.password}
+            </div>
+          ) 
+          : ( 
+            <div className={styles.Account__button} onClick={this.handleCreateClick}>
+                <FormattedMessage id="createAnAccount" />
+            </div> 
+          )}
       </div>
     )
   }
@@ -47,7 +47,7 @@ const mapStateToProps = ({ account }) => ({
 
 Account.propTypes = {
   patient: PropTypes.object,
-  account: PropTypes.array,
+  account: PropTypes.object,
 };
 
 export default connect(mapStateToProps)(Account);
