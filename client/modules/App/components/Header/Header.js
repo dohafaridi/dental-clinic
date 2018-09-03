@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
+import Authentification from '../../../Authentification/Authentification';
 // Import Style
 import styles from './Header.css';
 
@@ -53,6 +54,7 @@ const Header = (props, context) => {
                 <div className={styles['Header__icons--language-switcher']}>
                   <ul>{languageNodes}</ul>
                 </div>
+                <Authentification />
                 <span className={styles['Header__icons--slide-menu']}>
                   <i className="fa fa-align-left" aria-hidden="true" />
                 </span>

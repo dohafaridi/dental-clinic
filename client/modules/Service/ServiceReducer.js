@@ -13,7 +13,7 @@ const ServiceReducer = (state = initialState, action) => {
       return {
         data: [action.service, ...state.data],
       };
-
+      
     case ADD_SERVICES:
       return {
         data: action.services,
