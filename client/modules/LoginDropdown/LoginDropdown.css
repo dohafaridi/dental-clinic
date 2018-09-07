@@ -1,0 +1,22 @@
+.LoginDropdown {
+
+}
+
+.LoginDropdown__icon {
+  cursor: pointer;
+}
+
+.LoginDropdown__dropdown {
+  display: block;
+}
+
+.LoginDropdown__dropdown--hide {
+  display: none;
+}
+
+.LoginDropdown__logout {
+  color: yellow;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}

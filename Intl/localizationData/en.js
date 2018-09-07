@@ -61,6 +61,9 @@ export default {
     update: 'Update',
     delete: 'Delete',
     submit: 'Submit',
+    password: 'Password',
+    username: 'User name',
+    logout: 'logout',
     comment: `user {name} {value, plural,
     	  =0 {does not have any comments}
     	  =1 {has # comment}

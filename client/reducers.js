@@ -17,6 +17,7 @@ import medicalTreatmentsWidget from './modules/MedicalTreatment/components/Medic
 import appointments from './modules/Appointment/AppointmentReducer';
 import appointmentsWidget from './modules/Appointment/components/AppointmentWidget/AppointmentWidgetReducer';
 import account from './modules/Account/AccountReducer';
+import userStatus from './modules/LoginDropdown/LoginDropdownReducer';
 
 // Combine all reducers into one root reducer
 export default combineReducers({
@@ -33,4 +34,5 @@ export default combineReducers({
   appointments,
   appointmentsWidget,
   account,
+  userStatus,
 });
