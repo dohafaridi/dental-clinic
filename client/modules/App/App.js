@@ -114,6 +114,7 @@ export class App extends Component {
             toggleShowTestimonialWidget={this.toggleShowTestimonialWidgetSection}
             toggleShowPatientWidget={this.toggleShowPatientWidgetSection}
             isAdmin={this.props.userStatus.isAdmin}
+            location={this.props.location}
           />
           <div className={childrenClassName}>
             {childrenWithProps}

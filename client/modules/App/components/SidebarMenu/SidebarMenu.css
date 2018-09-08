@@ -1,0 +1,44 @@
+.SidebarMenu {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    background-color: rgba(61, 61, 61, 0.97);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
+    padding-left: 40px;
+}
+
+.SidebarMenu__hide {
+    display: none;
+}
+
+.SidebarMenu__close {
+    cursor: pointer;
+    color: yellow;
+    font-size: 40px;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.SidebarMenu li {
+    margin-bottom: 20px;
+}
+
+.SidebarMenu li.semicolon {
+    display: none;
+}
+
+.SidebarMenu a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.SidebarMenu a:hover {
+    color: yellow;
+}
+
