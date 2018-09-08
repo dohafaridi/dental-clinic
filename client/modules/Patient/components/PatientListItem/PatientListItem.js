@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 
 import styles from './PatientListItem.css';
 
-const PatientListItem = ({ patient, onDelete, onEdit }) => (
+const PatientListItem = ({ patient, onDelete, onEdit, isAdmin }) => (
   <article className={styles.PatientListItem}>
     <div className={styles.PatientListItem__information}>
       <div className={styles['PatientListItem__information--fullName']}>
@@ -20,20 +20,24 @@ const PatientListItem = ({ patient, onDelete, onEdit }) => (
       {patient.phone} / {patient.email}
     </div>
     <div className={styles.PatientListItem__links}>
-      <a
-        href="#"
-        className={styles['PatientListItem__links--item']}
-        onClick={onEdit}
-      >
-        <FormattedMessage id="editPatient" />
-      </a>
-      <a
-        href="#"
-        className={styles['PatientListItem__links--item']}
-        onClick={onDelete}
-      >
-        <FormattedMessage id="deletePatient" />
-      </a>
+      {isAdmin ? (
+        <a
+          href="#"
+          className={styles['PatientListItem__links--item']}
+          onClick={onEdit}
+        >
+          <FormattedMessage id="editPatient" />
+        </a>
+      ) : null}
+      {isAdmin ? (
+        <a
+          href="#"
+          className={styles['PatientListItem__links--item']}
+          onClick={onDelete}
+        >
+          <FormattedMessage id="deletePatient" />
+        </a>
+      ) : null}
       <Link
         to={`/patients/${patient.slug}`}
         className={styles['PatientListItem__links--item']}

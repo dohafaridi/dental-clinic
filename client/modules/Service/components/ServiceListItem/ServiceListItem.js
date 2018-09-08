@@ -7,7 +7,7 @@ import styles from './ServiceListItem.css';
 const MAX_LENGTH = 300;
 const renderContent = content => content.substring(0, MAX_LENGTH);
 
-const ServiceListItem = ({ service, onDelete, onEdit }) => (
+const ServiceListItem = ({ service, onDelete, onEdit, isAdmin }) => (
   <article className={styles.ServiceListItem}>
     <div className={styles.ServiceListItem__title}>
       <Link to={`/services/${service.slug}`} title={service.title}>
@@ -18,20 +18,24 @@ const ServiceListItem = ({ service, onDelete, onEdit }) => (
       {renderContent(service.content)}...
     </div>
     <div className={styles.ServiceListItem__links}>
-      <a
-        href="#"
-        className={styles['ServiceListItem__links--item']}
-        onClick={onEdit}
-      >
-        <FormattedMessage id="editService" />
-      </a>
-      <a
-        href="#"
-        className={styles['ServiceListItem__links--item']}
-        onClick={onDelete}
-      >
-        <FormattedMessage id="deleteService" />
-      </a>
+      {isAdmin ? (
+        <a
+          href="#"
+          className={styles['ServiceListItem__links--item']}
+          onClick={onEdit}
+        >
+          <FormattedMessage id="editService" />
+        </a>
+      ) : null}
+      {isAdmin ? (
+        <a
+          href="#"
+          className={styles['ServiceListItem__links--item']}
+          onClick={onDelete}
+        >
+          <FormattedMessage id="deleteService" />
+        </a>
+      ) : null}
       <Link
         to={`/services/${service.slug}`}
         className={styles['ServiceListItem__links--item']}

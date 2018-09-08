@@ -13,7 +13,6 @@ import styles from './AppointmentWidget.css';
 const TEXTAREA_ROWS = '10';
 
 // Those const will not more be hard coded once the authentication feature is implemented.
-const isAdmin = true;
 const isAnonymousUser = true;
 
 export class AppointmentWidget extends Component {
@@ -112,7 +111,7 @@ export class AppointmentWidget extends Component {
     if (!this.props.widgetValues) {
       return null;
     }
-
+    const { isAdmin } = this.props.userStatus;
     const appointmentForm = (
       <div className={styles.AppointmentWidget__form}>
         <div className="row form-group">

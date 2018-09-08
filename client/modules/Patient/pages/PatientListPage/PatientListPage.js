@@ -179,6 +179,7 @@ class PatientListPage extends Component {
           handleDeletePatient={this.handleDeletePatient}
           handleEditPatient={this.toggleShowPatientWidgetSection}
           patients={this.props.patients}
+          isAdmin={this.props.userStatus.isAdmin}
         />
       </div>
     );

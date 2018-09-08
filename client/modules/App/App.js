@@ -83,6 +83,9 @@ export class App extends Component {
 
   render() {
     const childrenClassName = this.props.location.pathname === '/' ? '' : 'container';
+    const { children } = this.props;
+    const childrenWithProps = React.Children.map(children, child =>
+      React.cloneElement(child, { userStatus: this.props.userStatus }));
     return (
       <div>
         {this.state.isMounted &&
@@ -110,11 +113,12 @@ export class App extends Component {
             toggleShowServiceWidget={this.toggleShowServiceWidgetSection}
             toggleShowTestimonialWidget={this.toggleShowTestimonialWidgetSection}
             toggleShowPatientWidget={this.toggleShowPatientWidgetSection}
+            isAdmin={this.props.userStatus.isAdmin}
           />
           <div className={childrenClassName}>
-            {this.props.children}
+            {childrenWithProps}
           </div>
-          <Footer />
+          <Footer isAdmin={this.props.userStatus.isAdmin} />
         </div>
       </div>
     );
@@ -126,12 +130,14 @@ App.propTypes = {
   dispatch: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
   location: PropTypes.object,
+  userStatus: PropTypes.object,
 };
 
 // Retrieve data from store as props
 function mapStateToProps(store) {
   return {
     intl: store.intl,
+    userStatus: store.userStatus,
   };
 }
 

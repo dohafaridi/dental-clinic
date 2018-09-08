@@ -69,6 +69,7 @@ class TestimonialListPage extends Component {
           handleDeleteTestimonial={this.handleDeleteTestimonial}
           handleEditTestimonial={this.toggleShowTestimonialWidgetSection}
           testimonials={this.props.testimonials}
+          isAdmin={this.props.userStatus.isAdmin}
         />
       </div>
     );
