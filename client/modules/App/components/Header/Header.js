@@ -52,7 +52,7 @@ class Header extends React.Component {
 
     return (
       <header className={headerClasses}>
-        <SidebarMenu isSidebarClosed={this.state.isSidebarClosed} location={location} />
+        <SidebarMenu isSidebarClosed={this.state.isSidebarClosed} />
         <nav>
           <div className="container">
             <div className="row">
@@ -64,12 +64,10 @@ class Header extends React.Component {
                   </div>
                 </Link>
               </div>
-              <div className="col-xs-5 col-md-4">
-                <LoginDropdownContainer />
-              </div>
-              <div className="col-xs-3 col-md-4">
+              <div className="col-xs-7 col-md-7">
                 <div className={styles.Header__icons}>
                   <div className={styles['Header__icons--social']}>
+                    <LoginDropdownContainer />
                     <a href="#">
                       <i className="fab fa-facebook-f" aria-hidden="true" />
                     </a>

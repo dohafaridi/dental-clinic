@@ -64,6 +64,16 @@ export default {
     password: 'Password',
     username: 'User name',
     logout: 'logout',
+    accessYourAccount: 'Access your account',
+    welcome: 'Welcome',
+    aboutUsSummary: `The Dr.AMGHAR orthodontic center is a medical area dedicated to oral health but also to the improvement and establishment of dental aesthetics and smiles.
+      On the firm's website you will find advice and explanations on dental health: prevention is the best way to keep healthy teeth.`,
+    aboutUsContent: `"Dr. AMGHAR has been an exclusive orthodontist since 2006. She worked at Ibn Rochd University as a specialist in orthodontics in addition to supervising students in the practical work of ODF and cephalometry, as well as supervising dentists registered in the DU. orthodontics of the faculty of dentistry - RABAT.
+      With a constant focus on continuing education, Dr. AMGHAR attended several national and international seminars and conferences. She has also participated as a speaker in numerous conferences and scientific events.
+      The DR AMGHAR orthodontic practice, which is located in Rabat, offers you quality care in a pleasant setting. The orthodontist Dr. AMGHAR accompanies you for orthopedic orthopedic or orthodontic care for children, adult orthodontics.
+      Call 05 22 86 23 22 for an appointment with our specialists
+      The orthodontist Dr. AMGHAR accompanies you daily for good oral health and care in specialties: orthodontics and pedodontics. Our team of experts is ready to welcome you and provide you with the most appropriate treatments: pedodontics, orthodontics, dental aesthetics, radiology ...\`
+      The Orthodontist Dr. AMGHAR specializes in orthodontics, is open Monday to Friday 9am to 19H and Saturday from 9H to 13H.`,
     comment: `user {name} {value, plural,
     	  =0 {does not have any comments}
     	  =1 {has # comment}

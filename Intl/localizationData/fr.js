@@ -64,6 +64,15 @@ export default {
     password: 'Le mot de passe',
     username: 'Le nom d\'utilisateur',
     logout: 'Se déconnecter',
+    accessYourAccount: 'Se connecter',
+    welcome: 'Bienvenue',
+    aboutUsSummary: 'Le centre d’orthodontie de Dr.AMGHAR un espace médical  réservé à la santé bucco-dentaire mais aussi à l’amélioration et l’établissement de l’esthétique dentaire et du sourire. Sur le site internet du cabinet vous trouverez des conseils et des explications sur la santé dentaire : la prévention est le meilleur moyen de conserver des dents saines.',
+    aboutUsContent: `« Dr AMGHAR est orthodontiste exclusive depuis 2006. elle a exercé au CHU Ibn Rochd comme spécialiste en orthodontie parallèlement à l’encadrement des étudiants aux travaux pratiques d’ODF et de céphalométrie ainsi que l’encadrement des chirurgiens dentistes inscrits au sein du DU d’orthodontie de la faculté de médecine dentaire – RABAT.
+      Dans un souci permanent de formation continu, Dr AMGHAR a assisté à plusieurs séminaires et congrès nationaux et internationaux. Elle a participé aussi comme conférencière dans nombreux congrès et manifestations scientifiques.
+      Le cabinet d’orthodontiste DR AMGHAR qui est situé à Rabat, vous offre des soins de qualité dans un cadre agréable. Le cabinet d’orthodontiste Dr AMGHAR vous accompagne pour des soins d’ortopédie dento-faciale ou ortodontie pour enfants, orthodontie de l’adulte.
+      Composez le 05 22 86 23 22pour un rendez vous avec nos spécialistes
+      Le cabinet d’orthodontiste Dr AMGHAR vous accompagne au quotidien pour une bonne santé buccale et des soins adaptés dans les spécialités : ortodontie et pédodontie. Toute notre équipe d’experts se tient prête à vous accueillir et à vous prodiguer les traitements les plus adaptés : pédodontie, orthodontie, esthétique dentaire, radiologie…
+      Le cabinet d’orthodontiste Dr AMGHAR spécialisé dans l’orthodontie, est ouvert du lundi au vendredi 9H à 19H et le samedi de 9H à 13H.`,
     comment: `user {name} {value, plural,
     	  =0 {does not have any comments}
     	  =1 {has # comment}

@@ -15,7 +15,7 @@ const loginDropdown = ({
   intl,
 }) => {
   const isLoggedIn = userStatus.usernameId;
-  const { username, password, submit, logout, welcome } = intl.messages;
+  const { username, password, submit, logout, welcome, accessYourAccount } = intl.messages;
   const loginDropdownClasses = `${styles.LoginDropdown} ${
       !isOpen && !userStatus.usernameId ? styles.LoginDropdown__hide : ''
     } ${!isLoggedIn ? styles.LoginDropdown__loggedOut : ''}`;
@@ -24,10 +24,16 @@ const loginDropdown = ({
     <div className={loginDropdownClasses}>
       <div className={styles.LoginDropdown__icon} onClick={handleToggleDropdown}>
         <i className="fas fa-user" />
+        {isLoggedIn ? (
+          <div className={styles.LoginDropdown__logout} onClick={handleLogout}>
+            {welcome} {userStatus.userName} | <span>{logout}</span>
+          </div>
+        ) : null}
       </div>
       <div className={styles.LoginDropdown__form}>
         {!isLoggedIn ? (
           <form noValidate onSubmit={handleSubmit} method="post">
+            <span>{accessYourAccount}</span>
             <input
               placeholder={username}
               value={userNameInputValue}
@@ -43,11 +49,7 @@ const loginDropdown = ({
             />
             <input type="submit" value={submit} onClick={handleSubmit} />
           </form>
-        ) : (
-          <div className={styles.LoginDropdown__logout} onClick={handleLogout}>
-            {welcome} {userStatus.userName} | <span>{logout}</span>
-          </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
