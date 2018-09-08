@@ -10,8 +10,8 @@ class LoginDropdownContainer extends Component {
     super(props);
 
     this.state = {
-      username: sessionStorage.getItem('username') || '',
-      password: sessionStorage.getItem('password') || '',
+      username: '',
+      password: '',
       isOpen: false,
     };
     this.handleToggleDropdown = this.handleToggleDropdown.bind(this);
@@ -25,13 +25,16 @@ class LoginDropdownContainer extends Component {
     this.setLogin();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.userStatus.usernameId !== this.props.userStatus.usernameId) {
+      sessionStorage.setItem('username', nextProps.userStatus.usernameId);
+      sessionStorage.setItem('password', nextProps.userStatus.password);
+    }
+  }
+
   setLogin() {
-    if (this.state.username && this.state.password) {
-      this.props.dispatch(login(this.state.username, this.state.password));
-      this.setState({
-        username: '',
-        password: '',
-      });
+    if (sessionStorage.getItem('username') && sessionStorage.getItem('password')) {
+      this.props.dispatch(login(sessionStorage.getItem('username'), sessionStorage.getItem('password')));
     }
   }
 
@@ -49,7 +52,7 @@ class LoginDropdownContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setLogin();
+    this.props.dispatch(login(this.state.username, this.state.password));
   }
 
   handleLogout() {

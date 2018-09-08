@@ -24,13 +24,12 @@ const Header = (props, context) => {
   const headerClasses = `${styles.Header} ${
     context.router.isActive('/', true) ? '' : styles['Header__internal-pages']
   }`;
-
   return (
     <header className={headerClasses}>
       <nav>
         <div className="container">
           <div className="row">
-            <div className="col-xs-5 col-md-5">
+            <div className="col-xs-4 col-md-4">
               <Link to="/" className={styles.Header__logo}>
                 <i className="Header__logo-fa fas fa-tooth" aria-hidden="true" />
                 <div className={styles['Header__logo-slogan']}>
@@ -38,7 +37,10 @@ const Header = (props, context) => {
                 </div>
               </Link>
             </div>
-            <div className="col-xs-7 col-md-7">
+            <div className="col-xs-5 col-md-4">
+              <LoginDropdownContainer />
+            </div>
+            <div className="col-xs-3 col-md-4">
               <div className={styles.Header__icons}>
                 <div className={styles['Header__icons--social']}>
                   <a href="#">
@@ -54,31 +56,32 @@ const Header = (props, context) => {
                 <div className={styles['Header__icons--language-switcher']}>
                   <ul>{languageNodes}</ul>
                 </div>
-                <LoginDropdownContainer />
                 <span className={styles['Header__icons--slide-menu']}>
                   <i className="fa fa-align-left" aria-hidden="true" />
                 </span>
               </div>
-              <div className={styles.Header__menu}>
-                {context.router.isActive('/services', true) ? (
-                  <a href="#" onClick={props.toggleShowServiceWidget}>
-                    <FormattedMessage id="addService" />
-                  </a>
-                ) : null}
-                {context.router.isActive('/testimonials', true) ? (
-                  <a href="#" onClick={props.toggleShowTestimonialWidget}>
-                    <FormattedMessage id="addTestimonial" />
-                  </a>
-                ) : null}
-                {context.router.isActive('/patients', true) ? (
-                  <a href="#" onClick={props.toggleShowPatientWidget}>
-                    <FormattedMessage id="addPatient" />
-                  </a>
-                ) : null}
-              </div>
             </div>
           </div>
         </div>
+        {props.isAdmin ? (<div className="row">
+          <div className={styles['Header__admin--menu']}>
+            {context.router.isActive('/services', true) ? (
+              <a href="#" onClick={props.toggleShowServiceWidget}>
+                <FormattedMessage id="addService" />
+              </a>
+            ) : null}
+            {context.router.isActive('/testimonials', true) ? (
+              <a href="#" onClick={props.toggleShowTestimonialWidget}>
+                <FormattedMessage id="addTestimonial" />
+              </a>
+            ) : null}
+            {context.router.isActive('/patients', true) ? (
+              <a href="#" onClick={props.toggleShowPatientWidget}>
+                <FormattedMessage id="addPatient" />
+              </a>
+            ) : null}
+          </div>
+        </div>) : null}
       </nav>
     </header>
   );
@@ -94,6 +97,7 @@ Header.propTypes = {
   toggleShowServiceWidget: PropTypes.func.isRequired,
   toggleShowTestimonialWidget: PropTypes.func.isRequired,
   toggleShowPatientWidget: PropTypes.func.isRequired,
+  isAdmin: PropTypes.bool,
 };
 
 export default Header;

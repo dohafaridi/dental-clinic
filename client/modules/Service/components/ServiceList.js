@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import ServiceListItem from './ServiceListItem/ServiceListItem';
 import styles from './ServiceList.css';
 
-const ServiceList = ({ services, handleDeleteService, handleEditService }) =>
+const ServiceList = ({ services, handleDeleteService, handleEditService, isAdmin }) =>
   (services ? (
     <div className={styles.ServiceList}>
       <h1 className={styles.ServiceList__title}>
@@ -16,6 +16,7 @@ const ServiceList = ({ services, handleDeleteService, handleEditService }) =>
           service={service}
           onDelete={() => handleDeleteService(service.cuid)}
           onEdit={() => handleEditService(service)}
+          isAdmin={isAdmin}
         />
       ))}
     </div>
@@ -25,6 +26,7 @@ ServiceList.propTypes = {
   services: PropTypes.array,
   handleDeleteService: PropTypes.func.isRequired,
   handleEditService: PropTypes.func.isRequired,
+  isAdmin: PropTypes.bool,
 };
 
 export default ServiceList;

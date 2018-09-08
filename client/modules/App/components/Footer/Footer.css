@@ -18,6 +18,10 @@
   color: #d5d5d5;
 }
 
+.Footer li.semicolon:last-child {
+  display: none;
+}
+
 .Footer p {
   margin: 0;
   padding: 0;

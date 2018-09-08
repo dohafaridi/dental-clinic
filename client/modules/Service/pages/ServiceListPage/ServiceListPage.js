@@ -69,6 +69,7 @@ class ServiceListPage extends Component {
           handleDeleteService={this.handleDeleteService}
           handleEditService={this.toggleShowServiceWidgetSection}
           services={this.props.services}
+          isAdmin={this.props.userStatus.isAdmin}
         />
       </div>
     );

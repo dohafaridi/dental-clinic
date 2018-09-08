@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 // Import Style
 import styles from './Footer.css';
 
-const Footer = () => {
+const Footer = ({ isAdmin }) => {
   return (
     <footer className={styles.Footer}>
       <div className="container">
@@ -25,12 +25,14 @@ const Footer = () => {
               </li>
               <li className="semicolon">:</li>
               <li>
-                <Link to="/patients"><FormattedMessage id="patientLabel" /></Link>
-              </li>
-              <li className="semicolon">:</li>
-              <li>
                 <Link to="/appointment"><FormattedMessage id="appointmentLabel" /></Link>
               </li>
+              <li className={styles.semicolon}>:</li>
+              {isAdmin ? (
+                <li>
+                  <Link to="/patients"><FormattedMessage id="patientLabel" /></Link>
+                </li>
+              ) : null}
             </ul>
           </div>
           <p className={styles.Footer__copyright}>

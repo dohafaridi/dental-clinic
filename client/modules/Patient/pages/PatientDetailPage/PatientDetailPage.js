@@ -8,9 +8,11 @@ import { fetchPatient } from '../../PatientActions';
 
 import styles from './PatientDetailPage.css';
 
-const PatientDetailPage = ({ patient }) => (
+const PatientDetailPage = ({ patient, userStatus }) => (
   <div className={styles.PatientDetailPage}>
-    <Account patient={patient} />
+    {userStatus.isAdmin ? (
+      <Account patient={patient} />
+     ) : null}
     <h1 className={styles.PatientDetailPage__fullName}>{patient.firstName} {patient.lastName}</h1>
     <div className={styles.PatientDetailPage__field}>{patient.sex}</div>
     <div className={styles.PatientDetailPage__field}>{patient.birthDay}</div>
@@ -21,8 +23,12 @@ const PatientDetailPage = ({ patient }) => (
     <div className={styles.PatientDetailPage__field}>{patient.maritalStatus}</div>
     <div className={styles.PatientDetailPage__field}>{patient.company}</div>
     <div className={styles.PatientDetailPage__field}>{patient.doctor}</div>
-    <MedicalTreatment patientID={patient._id} />
-    <Appointment patientID={patient._id} />
+    {userStatus.isAdmin ? (
+      <MedicalTreatment patientID={patient._id} />
+    ) : null}
+    {userStatus.isAdmin ? (
+      <Appointment patientID={patient._id} />
+    ) : null}
   </div>
 );
 

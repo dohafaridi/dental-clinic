@@ -25,7 +25,18 @@ export const getAccountByPatientID = (req, res) =>
   Account.find({ patientID: req.params.patientID }).exec(
     (err, accounts) => (err ? res.status(500).send(err) : res.json({ accounts }))
   );
-    
+
+/**
+ * check login credential
+ * @param req
+ * @param res
+ */
+export const checkLoginCredential = (req, res) => {
+  Account.find({ userName: req.params.username, password: req.params.password, isActiveAccount: true }).exec(
+    (err, account) => (err ? res.status(500).send(err) : res.json({ account }))
+  );
+};
+
 /**
  * Save an account
  * @param req

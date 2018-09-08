@@ -2,7 +2,7 @@ import { SET_LOGIN_STATUS } from './LoginDropdownActions';
 
 const initialState = {
   isAdmin: false,
-  usernameId: null,
+  usernameId: '',
 };
 
 const loginDropdownReducer = (state = initialState, action = {}) => {

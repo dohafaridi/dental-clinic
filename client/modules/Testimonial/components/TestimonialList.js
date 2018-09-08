@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import TestimonialListItem from './TestimonialListItem/TestimonialListItem';
 import styles from './TestimonialList.css';
 
-const TestimonialList = ({ testimonials, handleDeleteTestimonial, handleEditTestimonial }) =>
+const TestimonialList = ({ testimonials, handleDeleteTestimonial, handleEditTestimonial, isAdmin }) =>
   (testimonials ? (
     <div className={styles.TestimonialList}>
       <h1 className={styles.TestimonialList__title}>
@@ -16,6 +16,7 @@ const TestimonialList = ({ testimonials, handleDeleteTestimonial, handleEditTest
           testimonial={testimonial}
           onDelete={() => handleDeleteTestimonial(testimonial.cuid)}
           onEdit={() => handleEditTestimonial(testimonial)}
+          isAdmin={isAdmin}
         />
       ))}
     </div>
