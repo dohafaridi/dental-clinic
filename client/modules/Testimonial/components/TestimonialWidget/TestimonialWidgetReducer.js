@@ -5,6 +5,7 @@ const initialState = {
     testimonialWidgetTitleIntId: 'createNewTestimonial',
     titleInputValue: '',
     contentTextareaValue: '',
+    isOnHomeValue: false,
     cuid: '',
   },
 };

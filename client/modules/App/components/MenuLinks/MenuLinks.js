@@ -20,13 +20,17 @@ const MenuLinks = ({ isAdmin, styles }) => {
       <li>
         <Link to="/appointment"><FormattedMessage id="appointmentLabel" /></Link>
       </li>
-      <li className={styles.semicolon}>:</li>
+      {isAdmin ? (
+        <li className={styles.semicolon}>:</li>
+      ) : null}
       {isAdmin ? (
         <li>
           <Link to="/patients"><FormattedMessage id="patientLabel" /></Link>
         </li>
       ) : null}
-      <li className={styles.semicolon}>:</li>
+      {isAdmin ? (
+        <li className={styles.semicolon}>:</li>
+      ) : null}
       {isAdmin ? (
         <li>
           <Link to="/cmsPages"><FormattedMessage id="cmsPageLabel" /></Link>

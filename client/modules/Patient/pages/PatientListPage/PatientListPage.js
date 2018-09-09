@@ -184,10 +184,12 @@ class PatientListPage extends Component {
       </div>
     );
     const emptyCollectionMessage = (
-      <FormattedMessage
-        id="emptyCollectionMessage"
-        values={{ collection: 'patients' }}
-      />
+      <div className={"emptyMessage"}>
+        <FormattedMessage
+          id="emptyCollectionMessage"
+          values={{ collection: 'patients' }}
+        />
+      </div>
     );
 
     return this.props.patients.length || this.props.showPatientWidget

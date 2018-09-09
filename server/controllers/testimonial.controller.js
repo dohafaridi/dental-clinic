@@ -29,6 +29,17 @@ export const getTestimonial = (req, res) =>
   );
 
 /**
+ * Get home testimonials
+ * @param req
+ * @param res
+ * @returns void
+ */
+export const getHomeTestimonial = (req, res) =>
+  Testimonial.find({ isOnHomePage: true }).exec(
+    (err, testimonials) => (err ? res.status(500).send(err) : res.json({ testimonials }))
+  );
+
+/**
  * Save a testimonial
  * @param req
  * @param res
@@ -44,6 +55,8 @@ export const addTestimonial = (req, res) => {
   // Let's sanitize inputs
   newTestimonial.title = sanitizeHtml(newTestimonial.title);
   newTestimonial.content = sanitizeHtml(newTestimonial.content);
+  newTestimonial.patientID = sanitizeHtml(newTestimonial.patientID);
+  newTestimonial.isOnHomePage = sanitizeHtml(newTestimonial.isOnHomePage);
 
   newTestimonial.slug = slug(newTestimonial.title.toLowerCase(), { lowercase: true });
   newTestimonial.cuid = cuid();
@@ -83,6 +96,7 @@ export const editTestimonial = (req, res) => {
     $set: {
       title: req.body.testimonial.title,
       content: req.body.testimonial.content,
+      isOnHomePage: req.body.testimonial.isOnHomePage,
       slug: slug(req.body.testimonial.title, { lowercase: true }),
     },
   };

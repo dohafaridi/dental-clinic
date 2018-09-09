@@ -12,19 +12,21 @@ export class TestimonialWidget extends Component {
     super(props);
 
     this.state = {
-      titleValue: this.props.widgetValues.titleInputValue || '',
+      titleValue: this.props.widgetValues.titleInputValue || this.props.authorName,
       contentValue: this.props.widgetValues.contentTextareaValue || '',
+      isOnHomeValue: this.props.widgetValues.isOnHomeValue || false,
     };
-
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleIsOnHomeChange = this.handleIsOnHomeChange.bind(this);
     this.manageTestimonial = this.manageTestimonial.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ titleValue: nextProps.widgetValues.titleInputValue });
     this.setState({
+      titleValue: nextProps.widgetValues.titleInputValue || this.props.authorName,
       contentValue: nextProps.widgetValues.contentTextareaValue,
+      isOnHomeValue: nextProps.widgetValues.isOnHomeValue,
     });
   }
 
@@ -36,6 +38,10 @@ export class TestimonialWidget extends Component {
     this.setState({ contentValue: event.target.value });
   }
 
+  handleIsOnHomeChange(event) {
+    this.setState({ isOnHomeValue: event.target.checked });
+  }
+
   /**
    * manageTestimonial could be used as helper in the process of adding or
    * editing a testimonial, on both operation title and content are mandatory.
@@ -43,9 +49,19 @@ export class TestimonialWidget extends Component {
   manageTestimonial() {
     const titleRef = this.refs.title;
     const contentRef = this.refs.content;
+    const isOnHomeRef = this.refs.isOnHomePage;
     if (titleRef.value && contentRef.value) {
-      this.props.manageTestimonial(titleRef.value, contentRef.value);
+      const isChecked = isOnHomeRef ? isOnHomeRef.checked : false;
+      this.props.manageTestimonial(
+        titleRef.value,
+        contentRef.value,
+        isChecked,
+        this.props.authorID,
+      );
       titleRef.value = contentRef.value = '';
+      if (isOnHomeRef) {
+        isOnHomeRef.checked = isChecked;
+      }
     }
   }
 
@@ -68,9 +84,21 @@ export class TestimonialWidget extends Component {
           <h2 className={styles.TestimonialWidget__title}>
             {widgetTitleComponent}
           </h2>
+          {this.props.isAdmin ? (
+            <div className="row form-group">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={this.state.isOnHomeValue}
+                  ref="isOnHomePage"
+                  onChange={this.handleIsOnHomeChange}
+                /> Show on home page ?
+              </label>
+            </div>
+          ) : null}
           <div className="row form-group">
             <input
-              placeholder={this.props.intl.messages.testimonialTitle}
+              placeholder={this.props.intl.messages.authorName}
               value={this.state.titleValue}
               className="form-control"
               ref="title"
@@ -79,7 +107,7 @@ export class TestimonialWidget extends Component {
           </div>
           <div className="row form-group">
             <textarea
-              placeholder={this.props.intl.messages.testimonialContent}
+              placeholder={this.props.intl.messages.content}
               value={this.state.contentValue}
               className="form-control"
               rows={TEXTAREA_ROWS}

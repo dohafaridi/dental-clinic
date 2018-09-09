@@ -95,11 +95,6 @@ class Header extends React.Component {
                   <FormattedMessage id="addService" />
                 </a>
               ) : null}
-              {this.props.location.pathname === '/testimonials' ? (
-                <a href="#" onClick={this.props.toggleShowTestimonialWidget}>
-                  <FormattedMessage id="addTestimonial" />
-                </a>
-              ) : null}
               {this.props.location.pathname === '/patients' ? (
                 <a href="#" onClick={this.props.toggleShowPatientWidget}>
                   <FormattedMessage id="addPatient" />
@@ -112,6 +107,13 @@ class Header extends React.Component {
               ) : null}
             </div>
           </div>) : null}
+          <div className={styles['Header__admin--menu']}>
+            {this.props.username && this.props.location.pathname === '/testimonials'? (
+              <a href="#" onClick={this.props.toggleShowTestimonialWidget}>
+                <FormattedMessage id="addTestimonial" />
+              </a>
+            ) : null}
+          </div>
         </nav>
       </header>
     );

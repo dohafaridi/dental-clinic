@@ -24,20 +24,20 @@ class TestimonialListPage extends Component {
     this.handleEditTestimonial = this.handleEditTestimonial.bind(this);
   }
 
-  handleTestimonialWidgetSubmit(title, content) {
+  handleTestimonialWidgetSubmit(title, content, isOnHomeValue, patientID) {
     this.props.widgetValues.testimonialWidgetTitleIntId === 'editTheTestimonial' // eslint-disable-line
-      ? this.handleEditTestimonial(title, content, this.props.widgetValues.cuid)
-      : this.handleAddTestimonial(title, content);
+      ? this.handleEditTestimonial(title, content, isOnHomeValue, patientID, this.props.widgetValues.cuid)
+      : this.handleAddTestimonial(title, content, isOnHomeValue, patientID);
   }
 
-  handleAddTestimonial(title, content) {
+  handleAddTestimonial(title, content, isOnHomeValue, patientID) {
     this.props.dispatch(toggleShowTestimonialWidget());
-    this.props.dispatch(addTestimonialRequest({ title, content }));
+    this.props.dispatch(addTestimonialRequest({ title, content, isOnHomeValue, patientID }));
   }
 
-  handleEditTestimonial(title, content, cuid) {
+  handleEditTestimonial(title, content, isOnHomeValue, patientID, cuid) {
     this.props.dispatch(toggleShowTestimonialWidget());
-    this.props.dispatch(editTestimonialRequest(title, content, cuid));
+    this.props.dispatch(editTestimonialRequest(title, content, isOnHomeValue, patientID, cuid));
   }
 
   toggleShowTestimonialWidgetSection(testimonial) {
@@ -47,6 +47,7 @@ class TestimonialListPage extends Component {
         testimonialWidgetTitleIntId: 'editTheTestimonial',
         titleInputValue: testimonial.title,
         contentTextareaValue: testimonial.content,
+        isOnHomeValue: testimonial.isOnHomePage,
         cuid: testimonial.cuid,
       })
     );
@@ -64,20 +65,25 @@ class TestimonialListPage extends Component {
         <TestimonialWidget
           manageTestimonial={this.handleTestimonialWidgetSubmit}
           showTestimonialWidget={this.props.showTestimonialWidget}
+          isAdmin={this.props.userStatus.isAdmin}
+          authorName={this.props.userStatus.userName}
+          authorID={this.props.userStatus.usernameId}
         />
         <TestimonialList
           handleDeleteTestimonial={this.handleDeleteTestimonial}
           handleEditTestimonial={this.toggleShowTestimonialWidgetSection}
           testimonials={this.props.testimonials}
-          isAdmin={this.props.userStatus.isAdmin}
+          userStatus={this.props.userStatus}
         />
       </div>
     );
     const emptyCollectionMessage = (
-      <FormattedMessage
-        id="emptyCollectionMessage"
-        values={{ collection: 'testimonial' }}
-      />
+      <div className={"emptyMessage"}>
+        <FormattedMessage
+          id="emptyCollectionMessage"
+          values={{ collection: 'testimonial' }}
+        />
+      </div>
     );
 
     return this.props.testimonials.length || this.props.showTestimonialWidget

@@ -74,10 +74,12 @@ class ServiceListPage extends Component {
       </div>
     );
     const emptyCollectionMessage = (
-      <FormattedMessage
-        id="emptyCollectionMessage"
-        values={{ collection: 'services' }}
-      />
+      <div className={"emptyMessage"}>
+        <FormattedMessage
+          id="emptyCollectionMessage"
+          values={{ collection: 'services' }}
+        />
+      </div>
     );
 
     return this.props.services.length || this.props.showServiceWidget

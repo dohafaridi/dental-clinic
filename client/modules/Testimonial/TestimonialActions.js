@@ -22,6 +22,11 @@ export const fetchTestimonials = () => dispatch =>
     dispatch(addTestimonials(res.testimonials));
   });
 
+export const fetchHomeTestimonials = () => dispatch =>
+  callApi('testimonials/home').then(res => {
+    dispatch(addTestimonials(res.testimonials));
+  });
+
 export const fetchTestimonial = slug => dispatch =>
   callApi(`testimonials/${slug}`).then(res => dispatch(addTestimonial(res.testimonial)));
 
@@ -31,6 +36,8 @@ export const addTestimonialRequest = testimonial => {
       testimonial: {
         title: testimonial.title,
         content: testimonial.content,
+        isOnHomePage: testimonial.isOnHomePages,
+        patientID: testimonial.patientID,
       },
     }).then(res => dispatch(addTestimonial(res.testimonial)));
   };
@@ -43,12 +50,14 @@ export const editTestimonial = testimonial => {
   };
 };
 
-export const editTestimonialRequest = (title, content, cuid) => {
+export const editTestimonialRequest = (title, content, isOnHomePage, patientID, cuid) => {
   return (dispatch) => {
     return callApi(`testimonials/${cuid}`, 'post', {
       testimonial: {
         title,
         content,
+        isOnHomePage,
+        patientID,
       },
     }).then(res => dispatch(editTestimonial(res.testimonial)));
   };

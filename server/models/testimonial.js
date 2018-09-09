@@ -6,6 +6,8 @@ const TestimonialSchema = new Schema({
   title: { type: 'String', required: true },
   content: { type: 'String', required: true },
   slug: { type: 'String', required: true },
+  isOnHomePage: { type: 'Boolean', default: false, required: true },
+  patientID: { type: 'String', required: true, default: 'admin' },
   dateAdded: { type: 'Date', default: Date.now, required: true },
 });
 

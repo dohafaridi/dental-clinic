@@ -130,6 +130,7 @@ export class App extends Component {
             toggleShowPatientWidget={this.toggleShowPatientWidgetSection}
             toggleShowCMSPageWidget={this.toggleShowCMSPageWidgetSection}
             isAdmin={this.props.userStatus.isAdmin}
+            username={this.props.userStatus.userName}
             location={this.props.location}
           />
           <div className={childrenClassName}>

@@ -74,10 +74,12 @@ class CMSPageListPage extends Component {
       </div>
     );
     const emptyCollectionMessage = (
-      <FormattedMessage
-        id="emptyCollectionMessage"
-        values={{ collection: 'cmsPages' }}
-      />
+      <div className={"emptyMessage"}>
+        <FormattedMessage
+          id="emptyCollectionMessage"
+          values={{ collection: 'cmsPages' }}
+        />
+      </div>
     );
 
     return this.props.cmsPages.length || this.props.showCMSPageWidget

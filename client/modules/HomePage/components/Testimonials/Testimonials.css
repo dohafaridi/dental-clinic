@@ -1,0 +1,42 @@
+.Testimonials {
+    margin-bottom: 60px;
+    padding: 40px 0;
+    background: #ffff0017;
+}
+
+.Testimonials_title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: rgba(0, 0, 0, .56)
+}
+
+.Testimonials_title strong {
+    color: #000;
+}
+
+.Testimonials_description {
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 25px;
+}
+
+.Testimonials__item-image {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.Testimonials__item-image img {
+  border-radius: 100%;
+}
+
+.Testimonials__item-description {
+    text-align: center;
+    line-height: 25px;
+}
+
+.Testimonials__item-author {
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
