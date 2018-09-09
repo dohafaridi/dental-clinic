@@ -11,8 +11,8 @@ export const addAccount = account => {
 };
 
 export const fetchAccountsByPatientID = patientID => dispatch =>
-  callApi(`accounts/${patientID}`).then(res => {
-    dispatch(addAccounts(res.accounts));
+  callApi(`account/${patientID}`).then(res => {
+    dispatch(addAccount(res.accounts[0]));
   });
 
 export const addAccountRequest = account => {
@@ -34,9 +34,9 @@ export const editAccount = account => {
   };
 };
 
-export const editAccountRequest = isActiveAccount => {
+export const editAccountRequest = (isActiveAccount, _id) => {
   return (dispatch) => {
-    return callApi(`accounts/${cuid}`, 'post', {
+    return callApi(`accounts/${_id}`, 'post', {
       account: { isActiveAccount },
     }).then(res => dispatch(editAccount(res.account)));
   };

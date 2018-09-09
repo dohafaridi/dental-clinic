@@ -5,7 +5,7 @@ import MedicalTreatmentListItem from './MedicalTreatmentListItem/MedicalTreatmen
 import styles from './MedicalTreatmentList.css';
 
 const MedicalTreatmentList = ({ medicalTreatments, handleDeleteMedicalTreatment, handleEditMedicalTreatment }) =>
-  (medicalTreatments ? (
+  (medicalTreatments && medicalTreatments.length ? (
     <div className={styles.MedicalTreatmentList}>
       <h2 className={styles.MedicalTreatmentList__title}>
         <FormattedMessage id="medicalTreatmentLabel" />

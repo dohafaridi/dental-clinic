@@ -15,4 +15,7 @@ router.route('/login/:username/:password').get(AccountController.checkLoginCrede
 // Add a new account
 router.route('/accounts').post(AccountController.addAccount);
 
+// Edit an account by _id
+router.route('/accounts/:_id').post(AccountController.editAccount);
+
 export default router;

@@ -2,6 +2,20 @@
   padding-bottom: 30px;
 }
 
+.Account__status {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.Account__status_block {
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid #000;
+}
+
 .Account__button {
   text-transform: uppercase;
   text-align: right;

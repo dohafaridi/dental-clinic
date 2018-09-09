@@ -21,10 +21,7 @@ const AccountReducer = (state = initialState, action) => {
 
     case EDIT_ACCOUNT:
       return {
-        data: state.data.map(
-          account =>
-            (account.cuid === action.account.cuid ? action.account : account)
-        ),
+        data: Object.assign({}, state.data, action.account),
       };
 
     default:

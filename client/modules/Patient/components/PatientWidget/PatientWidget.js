@@ -209,9 +209,9 @@ export class PatientWidget extends Component {
               value={this.state.sexValue}
               onChange={this.handleSexChange}
             >
-              <option>-- SEX --</option>
-              <option value="W">W</option>
-              <option value="M">M</option>
+              <option>You are ?</option>
+              <option value="Homme">Homme</option>
+              <option value="Femme">Femme</option>
             </select>
             <input
               placeholder={this.props.intl.messages.patientBirthDay}
@@ -273,9 +273,9 @@ export class PatientWidget extends Component {
               value={this.state.doctorValue}
               onChange={this.handleDoctorChange}
             >
-              <option>-- Doctor --</option>
-              <option value="DOC 1">DOC 1</option>
-              <option value="DOC 2">DOC 2</option>
+              <option>Choose your doctor</option>
+              <option value="Dr Amghar">Dr Amghar</option>
+              <option value="Dr Wassim">Dr Wassim</option>
             </select>
             <input
               placeholder={this.props.intl.messages.patientInsurance}

@@ -58,3 +58,28 @@ export const addAccount = (req, res) => {
       (err ? res.status(500).send(err) : res.json({ account: saved }))
   );
 };
+
+/**
+ * Edit an account
+ * @param req
+ * @param res
+ * @returns void
+ */
+export const editAccount = (req, res) => {
+  const query = { _id: req.params._id };
+  const newValues = {
+    $set: {
+      isActiveAccount: req.body.account.isActiveAccount,
+    },
+  };
+  Account.findOneAndUpdate(
+    query,
+    newValues,
+    (err, saved) =>
+      (
+        err
+          ? res.status(500).send(err)
+          : res.json({ account: Object.assign(saved, {}, newValues.$set) })
+      )
+  );
+};
