@@ -1,0 +1,46 @@
+.CMSPageWidget {
+  display: none;
+  margin: 50px 0;
+}
+
+.CMSPageWidget__hide {
+  display: block;
+}
+
+.CMSPageWidget__title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 40px;
+}
+
+.CMSPageWidget__submit {
+  text-align: center;
+}
+
+.CMSPageWidget__submit {
+  padding: 0;
+  text-align: center;
+}
+
+.CMSPageWidget__submit a {
+  text-align: center;
+  height: 50px;
+  border: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 200;
+  padding: 10px 25px;
+  margin-top: 27px;
+  border-radius: 0;
+  background: black;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.CMSPageWidget__submit a:hover {
+  background: rgb(255, 255, 0);
+  color: #888888;
+  font-weight: 400;
+}

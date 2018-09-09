@@ -3,6 +3,7 @@ import {
   TOGGLE_SHOW_TESTIMONIAL_WIDGET,
   TOGGLE_SHOW_PATIENT_WIDGET,
   TOGGLE_SHOW_MEDICAL_TREATMENT_WIDGET,
+  TOGGLE_SHOW_CMS_PAGE_WIDGET,
 } from './AppActions';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   showTestimonialWidget: false,
   showPatientWidget: false,
   showMedicalTreatmentWidget: false,
+  showCMSPageWidget: false,
 };
 
 const AppReducer = (state = initialState, action) => {
@@ -32,6 +34,11 @@ const AppReducer = (state = initialState, action) => {
     case TOGGLE_SHOW_MEDICAL_TREATMENT_WIDGET:
       return {
         showMedicalTreatmentWidget: !state.showMedicalTreatmentWidget,
+      };
+
+    case TOGGLE_SHOW_CMS_PAGE_WIDGET:
+      return {
+        showCMSPageWidget: !state.showCMSPageWidget,
       };
 
     default:

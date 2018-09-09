@@ -19,7 +19,7 @@ class Header extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.location.pathname !== this.props.location.pathname) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
       this.setState({
         isSidebarClosed: true,
       });
@@ -52,7 +52,7 @@ class Header extends React.Component {
 
     return (
       <header className={headerClasses}>
-        <SidebarMenu isSidebarClosed={this.state.isSidebarClosed} />
+        <SidebarMenu isSidebarClosed={this.state.isSidebarClosed} isAdmin={this.props.isAdmin} />
         <nav>
           <div className="container">
             <div className="row">
@@ -105,6 +105,11 @@ class Header extends React.Component {
                   <FormattedMessage id="addPatient" />
                 </a>
               ) : null}
+              {this.props.location.pathname === '/cmsPages' ? (
+                <a href="#" onClick={this.props.toggleShowCMSPageWidget}>
+                  <FormattedMessage id="addCMSPage" />
+                </a>
+              ) : null}
             </div>
           </div>) : null}
         </nav>
@@ -119,6 +124,7 @@ Header.propTypes = {
   toggleShowServiceWidget: PropTypes.func.isRequired,
   toggleShowTestimonialWidget: PropTypes.func.isRequired,
   toggleShowPatientWidget: PropTypes.func.isRequired,
+  toggleShowCMSPageWidget: PropTypes.func.isRequired,
   isAdmin: PropTypes.bool,
   location: PropTypes.object,
 };

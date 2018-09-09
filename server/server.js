@@ -52,6 +52,7 @@ import patients from './routes/patients.routes';
 import appointments from './routes/appointments.routes';
 import medicalTreatment from './routes/medicalTreatment.routes';
 import accounts from './routes/accounts.routes';
+import CMSPages from './routes/CMSPages.routes';
 import serverConfig from './config';
 
 // Set native promises as mongoose promise
@@ -81,6 +82,7 @@ app.use('/api', patients);
 app.use('/api', medicalTreatment);
 app.use('/api', appointments);
 app.use('/api', accounts);
+app.use('/api', CMSPages);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

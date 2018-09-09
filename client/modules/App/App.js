@@ -8,10 +8,11 @@ import Footer from './components/Footer/Footer';
 
 // Import Actions
 import { switchLanguage } from '../../modules/Intl/IntlActions';
-import { toggleShowServiceWidget, toggleShowTestimonialWidget, toggleShowPatientWidget } from './AppActions';
+import { toggleShowServiceWidget, toggleShowTestimonialWidget, toggleShowPatientWidget, toggleShowCMSPageWidget } from './AppActions';
 import { setDefaultServiceWidgetValues } from '../../modules/Service/components/ServiceWidget/ServiceWidgetActions';
 import { setDefaultTestimonialWidgetValues } from '../../modules/Testimonial/components/TestimonialWidget/TestimonialWidgetActions';
 import { setDefaultPatientWidgetValues } from '../../modules/Patient/components/PatientWidget/PatientWidgetActions';
+import { setDefaultCMSPageWidgetValues } from '../../modules/CMSPage/components/CMSPageWidget/CMSPageWidgetActions';
 
 let DevTools;
 if (process.env.NODE_ENV === 'development') {
@@ -32,6 +33,9 @@ export class App extends Component {
     this.toggleShowPatientWidgetSection = this.toggleShowPatientWidgetSection.bind(
       this
     );
+    this.toggleShowCMSPageWidgetSection = this.toggleShowCMSPageWidgetSection.bind(
+      this
+    );
   }
 
   componentDidMount() {
@@ -43,6 +47,17 @@ export class App extends Component {
     this.props.dispatch(
       setDefaultServiceWidgetValues({
         serviceWidgetTitleIntId: 'createNewService',
+        titleInputValue: '',
+        contentTextareaValue: '',
+      })
+    );
+  }
+
+  toggleShowCMSPageWidgetSection() {
+    this.props.dispatch(toggleShowCMSPageWidget());
+    this.props.dispatch(
+      setDefaultCMSPageWidgetValues({
+        cmsPageWidgetTitleIntId: 'createNewCMSPage',
         titleInputValue: '',
         contentTextareaValue: '',
       })
@@ -113,6 +128,7 @@ export class App extends Component {
             toggleShowServiceWidget={this.toggleShowServiceWidgetSection}
             toggleShowTestimonialWidget={this.toggleShowTestimonialWidgetSection}
             toggleShowPatientWidget={this.toggleShowPatientWidgetSection}
+            toggleShowCMSPageWidget={this.toggleShowCMSPageWidgetSection}
             isAdmin={this.props.userStatus.isAdmin}
             location={this.props.location}
           />

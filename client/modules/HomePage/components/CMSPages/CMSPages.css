@@ -1,0 +1,125 @@
+.CMSPages {
+    margin: 40px;
+}
+
+.CMSPages_title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: rgba(0, 0, 0, .56)
+}
+
+.CMSPages_title strong {
+    color: #000;
+}
+
+.CMSPages_description {
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 25px;
+}
+
+.CMSPages__item-1 .CMSPages__item-img {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.CMSPages__item-1 .CMSPages__item-img:before {
+    background: rgba(17, 17, 17, 0.3) none repeat scroll 0 0;
+    content: " ";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.CMSPages__item-1 img {
+    height: 400px;
+}
+
+.CMSPages__item-1 h2 {
+    font-size: 20px;
+    padding: 20px 0;
+    color: #000;
+}
+
+.CMSPages__item a {
+    display: flex;
+}
+
+.CMSPages__item {
+    height: 190px;
+    overflow: hidden;
+}
+
+.CMSPages__item:first-child {
+    margin-bottom: 20px;
+}
+
+.CMSPages__item .CMSPages__item-img {
+    height: 190px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.CMSPages__item .CMSPages__item-img:before {
+    background: rgba(17, 17, 17, 0.3) none repeat scroll 0 0;
+    content: " ";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.CMSPages__item-left,
+.CMSPages__item-right {
+    flex: 50%;
+    width: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.CMSPages__item-right {
+    padding-left: 20px;
+}
+
+.CMSPages__item-right h2 {
+    font-size: 20px;
+    color: #000;
+}
+
+.CMSPages__chevron {
+    position: absolute;
+    bottom: 0;
+}
+
+.CMSPages__chevron div {
+    display: block;
+    width: 63px;
+    height: 62px;
+    padding: 0;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 100px;
+    background: #ffff00;
+    margin: 0 auto;
+}
+
+.CMSPages__chevron div:hover {
+    background: rgba(255, 255, 0, 0.4);
+}
+
+.CMSPages__chevron span {
+    font-size: 57px;
+    font-weight: 300;
+    color: black;
+    padding: 0 15px;
+    line-height: 61px;
+}

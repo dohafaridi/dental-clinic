@@ -1,13 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import HomeBanner from './components/HomeBanner/HomeBanner';
 import AboutUs from './components/AboutUs/AboutUs';
+import CMSPages from './components/CMSPages/CMSPages';
+import { fetchCMSPages } from '../CMSPage/CMSPageActions';
 
-const HomePage = () => (
-  <div className="HomePage">
-    <HomeBanner />
-    <AboutUs />
-  </div>
-);
+class HomePage extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(fetchCMSPages());
+  }
 
-export default HomePage;
+  render() {
+    return (
+      <div className="HomePage">
+        <HomeBanner />
+        <AboutUs />
+        <CMSPages cmsPages={this.props.cmsPages} />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  cmsPages: state.cmsPages.data,
+});
+
+export default connect(mapStateToProps)(HomePage);

@@ -8,6 +8,8 @@ import app from './modules/App/AppReducer';
 import intl from './modules/Intl/IntlReducer';
 import services from './modules/Service/ServiceReducer';
 import servicesWidget from './modules/Service/components/ServiceWidget/ServiceWidgetReducer';
+import cmsPages from './modules/CMSPage/CMSPageReducer';
+import cmsPagesWidget from './modules/CMSPage/components/CMSPageWidget/CMSPageWidgetReducer';
 import testimonials from './modules/Testimonial/TestimonialReducer';
 import testimonialsWidget from './modules/Testimonial/components/TestimonialWidget/TestimonialWidgetReducer';
 import patients from './modules/Patient/PatientReducer';
@@ -35,4 +37,6 @@ export default combineReducers({
   appointmentsWidget,
   account,
   userStatus,
+  cmsPages,
+  cmsPagesWidget,
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
-const MenuLinks = ({ isAdmin, isSidebar, styles }) => {
+const MenuLinks = ({ isAdmin, styles }) => {
   return (
     <ul>
       <li>
@@ -24,6 +24,12 @@ const MenuLinks = ({ isAdmin, isSidebar, styles }) => {
       {isAdmin ? (
         <li>
           <Link to="/patients"><FormattedMessage id="patientLabel" /></Link>
+        </li>
+      ) : null}
+      <li className={styles.semicolon}>:</li>
+      {isAdmin ? (
+        <li>
+          <Link to="/cmsPages"><FormattedMessage id="cmsPageLabel" /></Link>
         </li>
       ) : null}
     </ul>
