@@ -179,13 +179,6 @@ export class AppointmentWidget extends Component {
     return (
       <div className={styles.AppointmentWidget}>
         <div className="container">
-          {isAdmin ? (
-            <div className={styles.AppointmentWidget__link}>
-              <Link to="/appointments">
-                <FormattedMessage id="appointmentList" />
-              </Link>
-            </div>
-          ) : null}
           <h2 className={styles.AppointmentWidget__title}>
             <FormattedMessage id="appointmentLabel" />
           </h2>

@@ -25,6 +25,14 @@ const MenuLinks = ({ isAdmin, styles }) => {
       ) : null}
       {isAdmin ? (
         <li>
+          <Link to="/appointments">Agenda</Link>
+        </li>
+      ) : null}
+      {isAdmin ? (
+        <li className={styles.semicolon}>:</li>
+      ) : null}
+      {isAdmin ? (
+        <li>
           <Link to="/patients"><FormattedMessage id="patientLabel" /></Link>
         </li>
       ) : null}
@@ -41,3 +49,4 @@ const MenuLinks = ({ isAdmin, styles }) => {
 };
 
 export default MenuLinks;
+
