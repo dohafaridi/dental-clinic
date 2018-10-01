@@ -56,7 +56,7 @@ class Header extends React.Component {
         <nav>
           <div className="container">
             <div className="row">
-              <div className="col-xs-4 col-md-4">
+              <div className="col-xs-12 col-md-4">
                 <Link to="/" className={styles.Header__logo}>
                   <i className="Header__logo-fa fas fa-tooth" aria-hidden="true" />
                   <div className={styles['Header__logo-slogan']}>
@@ -64,7 +64,7 @@ class Header extends React.Component {
                   </div>
                 </Link>
               </div>
-              <div className="col-xs-7 col-md-7">
+              <div className="col-xs-12 col-md-7">
                 <div className={styles.Header__icons}>
                   <div className={styles['Header__icons--social']}>
                     <LoginDropdownContainer />

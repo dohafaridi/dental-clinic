@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react';
-import { FormattedMessage } from 'react-intl';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 
-import AppointmentListItem from './AppointmentListItem/AppointmentListItem';
 import styles from './AppointmentList.css';
 import stylesBigCalendar from 'react-big-calendar/lib/css/react-big-calendar.css';
 

@@ -9,3 +9,14 @@
   padding-bottom: 50px;
   color: #000;
 }
+
+@media screen and (max-width: 1024px) {
+  .ServiceList {
+    padding: 40px 0;
+  }
+
+  .ServiceList__title {
+    font-size:40px;
+    padding-bottom: 10px;
+  }
+}

@@ -123,3 +123,28 @@
     padding: 0 15px;
     line-height: 61px;
 }
+
+@media screen and (max-width: 767px) {
+  .CMSPages {
+    margin: 20px 0;
+  }
+
+  .CMSPages__item-right h2 {
+    font-size: 15px;
+  }
+
+  .CMSPages__item-1 .CMSPages__item-img {
+    height: 300px;
+  }
+
+  .CMSPages__item-1 img {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .CMSPages__item-1,
+  .CMSPages__item .CMSPages__item-img {
+    text-align: center;
+  }
+}

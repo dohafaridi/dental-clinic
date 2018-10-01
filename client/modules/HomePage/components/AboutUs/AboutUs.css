@@ -47,3 +47,13 @@
   padding: 0 15px;
   line-height: 61px;
 }
+
+@media screen and (max-width: 767px) {
+  .AboutUs__tilte {
+    font-size: 40px;
+  }
+
+  .AboutUs__content {
+    font-size: 18px;
+  }
+}

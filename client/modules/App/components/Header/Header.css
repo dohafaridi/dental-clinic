@@ -132,3 +132,14 @@
   font-size: 12px;
   color: #fff;
 }
+
+@media screen and (max-width: 767px) {
+  .Header__logo {
+    justify-content: center;
+  }
+
+  .Header__icons  {
+    float: none;
+    text-align: center;
+  }
+}
