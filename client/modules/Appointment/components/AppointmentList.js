@@ -7,6 +7,11 @@ import stylesBigCalendar from 'react-big-calendar/lib/css/react-big-calendar.css
 
 BigCalendar.momentLocalizer(moment);
 
+Date.prototype.addHours = function(h) {
+  this.setHours(this.getHours() + h);
+  return this;
+};
+
 const AppointmentList = ({ appointments }) => {
   if (!appointments.length) {
     return null;
@@ -16,7 +21,7 @@ const AppointmentList = ({ appointments }) => {
     {
       title: 'An appointment',
       startDate: new Date(appointment.appointmentDate),
-      endDate: new Date(appointment.appointmentDate),
+      endDate: new Date(appointment.appointmentDate).addHours(5),
     }
   ));
 
@@ -31,6 +36,7 @@ const AppointmentList = ({ appointments }) => {
         endAccessor={'endDate'}
         views={['week', 'day', 'month']}
         defaultView={'week'}
+        onSelectEvent={event => alert(event.title)}
       />
     </div>
   ) : null);

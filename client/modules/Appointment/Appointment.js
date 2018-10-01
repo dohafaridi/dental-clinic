@@ -20,6 +20,7 @@ class Appointment extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="Appointment">
         {this.props.location &&

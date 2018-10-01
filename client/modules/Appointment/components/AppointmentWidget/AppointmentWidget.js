@@ -111,7 +111,7 @@ export class AppointmentWidget extends Component {
     if (!this.props.widgetValues) {
       return null;
     }
-    const { isAdmin } = this.props.userStatus;
+
     const appointmentForm = (
       <div className={styles.AppointmentWidget__form}>
         <div className="row form-group">

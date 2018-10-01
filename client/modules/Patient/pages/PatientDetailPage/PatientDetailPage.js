@@ -28,9 +28,7 @@ const PatientDetailPage = ({ patient, userStatus }) => (
     {userStatus.isAdmin ? (
       <MedicalTreatment patientID={patient._id} />
     ) : null}
-    {userStatus.isAdmin ? (
-      <Appointment patientID={patient._id} />
-    ) : null}
+    <Appointment patientID={patient._id} />
   </div>
 );
 
