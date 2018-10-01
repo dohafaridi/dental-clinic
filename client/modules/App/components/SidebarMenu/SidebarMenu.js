@@ -31,7 +31,7 @@ class SidebarMenu extends React.Component {
     return (
       <div className={SidebarMenuClasses}>
         <div className={styles.SidebarMenu__close} onClick={this.handleClose}>&times;</div>
-        <MenuLinks isAdmin={this.props.isAdmin} styles={styles} isSidebar />
+        <MenuLinks isPatient={this.props.isPatient} isAdmin={this.props.isAdmin} styles={styles} isSidebar />
       </div>
     );
   }

@@ -12,9 +12,6 @@ import styles from './AppointmentWidget.css';
 
 const TEXTAREA_ROWS = '10';
 
-// Those const will not more be hard coded once the authentication feature is implemented.
-const isAnonymousUser = true;
-
 export class AppointmentWidget extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +21,7 @@ export class AppointmentWidget extends Component {
       hourValue: this.props.widgetValues.hourInputValue || '',
       reasonValue: this.props.widgetValues.reasonTextareaValue || '',
       submittedAppointment: false,
+      isAnonymousUser: true,
     };
 
     this.handleDateChange = this.handleDateChange.bind(this);
@@ -33,15 +31,22 @@ export class AppointmentWidget extends Component {
     this.manageAppointment = this.manageAppointment.bind(this);
   }
 
+  componentDidMount() {
+    console.log(this.props)
+    this.setState({ isAnonymousUser: this.props.userStatus.usernameId ? false : true });
+  }
+
   componentWillReceiveProps(nextProps) {
+    console.log('gooooo')
     this.setState({ dateValue: nextProps.widgetValues.dateInputValue });
     this.setState({ hourValue: nextProps.widgetValues.hourInputValue });
     this.setState({ reasonValue: nextProps.widgetValues.reasonTextareaValue });
-
+    this.setState({ isAnonymousUser: nextProps.userStatus.usernameId ? false : true });
+    
     // Once saving a new patient to the collection we should add the requested
     // appointment by calling manageAppointment func and specify patientID param
-    if (nextProps.patients.length !== this.props.patients) {
-      this.manageAppointment(nextProps.patients[nextProps.patients.length - 1].patientID);
+    if (nextProps.patients.length !== this.props.patients && nextProps.patients.length - 1 >= 0) {
+      this.manageAppointment(nextProps.patients[nextProps.patients.length - 1]._id);
     }
   }
 
@@ -93,11 +98,11 @@ export class AppointmentWidget extends Component {
    * manageAppointment could be used as helper in the process of adding or
    * editing a appointment, on both operation date and reason are mandatory.
    */
-  manageAppointment(patientID = '5b6082a0bccc0d4aac848bea') {
+  manageAppointment(patientID) {
     const reason = this.refs.reason.value;
     const appointmentDate = this.refs.date.value;
     const appointmentHour = this.refs.time.value;
-    if (appointmentDate && reason && appointmentHour) {
+    if (patientID && appointmentDate && reason && appointmentHour) {
       this.props.dispatch(
         addAppointmentRequest({ reason, appointmentDate, appointmentHour, patientID })
       );
@@ -111,7 +116,7 @@ export class AppointmentWidget extends Component {
     if (!this.props.widgetValues) {
       return null;
     }
-
+    console.log(this.props)
     const appointmentForm = (
       <div className={styles.AppointmentWidget__form}>
         <div className="row form-group">
@@ -146,7 +151,7 @@ export class AppointmentWidget extends Component {
             />
           </div>
         </div>
-        {!isAnonymousUser ? (
+        {!this.state.isAnonymousUser ? (
           <div
             className={`col-sm-12 col-md-12 ${
               styles.AppointmentWidget__submit
@@ -155,13 +160,13 @@ export class AppointmentWidget extends Component {
             <a
               className="btn btn-default"
               href="#"
-              onClick={this.manageAppointment}
+              onClick={() => this.manageAppointment(this.props.userStatus.usernameId)}
             >
               <FormattedMessage id="submit" />
             </a>
           </div>
         ) : null}
-        {isAnonymousUser ? (
+        {this.state.isAnonymousUser ? (
           <PatientWidget
             showPatientWidget
             managePatient={this.handlePatientWidgetSubmit}
@@ -197,6 +202,7 @@ export class AppointmentWidget extends Component {
 const mapStateToProps = state => ({
   widgetValues: state.appointmentsWidget.defaultValues,
   patients: state.patients.data,
+  userStatus: state.userStatus,
   intl: state.intl,
 });
 

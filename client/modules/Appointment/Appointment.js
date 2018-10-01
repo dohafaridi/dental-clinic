@@ -20,12 +20,11 @@ class Appointment extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="Appointment">
         {this.props.location &&
         this.props.location.pathname === '/appointment' ? (
-          <AppointmentWidget userStatus={this.props.userStatus} />
+          <AppointmentWidget />
         ) : (
           <AppointmentList appointments={this.props.appointments} />
         )}

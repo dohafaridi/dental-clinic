@@ -7,13 +7,13 @@ import MenuLinks from '../MenuLinks/MenuLinks';
 // Import Style
 import styles from './Footer.css';
 
-const Footer = ({ isAdmin }) => {
+const Footer = ({ isAdmin, isPatient }) => {
   return (
     <footer className={styles.Footer}>
       <div className="container">
         <div className="row">
           <div className={styles.Footer__links}>
-            <MenuLinks isAdmin={isAdmin} styles={styles} />
+            <MenuLinks isAdmin={isAdmin} isPatient={isPatient} styles={styles} />
           </div>
           <p className={styles.Footer__copyright}>
             <FormattedMessage id="appRights" />

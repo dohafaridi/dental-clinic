@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
-const MenuLinks = ({ isAdmin, styles }) => {
+const MenuLinks = ({ isAdmin, styles, isPatient }) => {
   return (
     <ul>
       <li>
@@ -28,10 +28,10 @@ const MenuLinks = ({ isAdmin, styles }) => {
           <Link to="/appointments">Agenda</Link>
         </li>
       ) : null}
-      {isAdmin ? (
+      {isAdmin || isPatient ? (
         <li className={styles.semicolon}>:</li>
       ) : null}
-      {isAdmin ? (
+      {isAdmin || isPatient ? (
         <li>
           <Link to="/patients"><FormattedMessage id="patientLabel" /></Link>
         </li>

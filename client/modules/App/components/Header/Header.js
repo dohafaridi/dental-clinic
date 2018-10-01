@@ -52,7 +52,7 @@ class Header extends React.Component {
 
     return (
       <header className={headerClasses}>
-        <SidebarMenu isSidebarClosed={this.state.isSidebarClosed} isAdmin={this.props.isAdmin} />
+        <SidebarMenu isSidebarClosed={this.state.isSidebarClosed} isAdmin={this.props.isAdmin} isPatient={this.props.isPatient} />
         <nav>
           <div className="container">
             <div className="row">

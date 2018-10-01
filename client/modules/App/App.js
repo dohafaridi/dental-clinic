@@ -132,11 +132,12 @@ export class App extends Component {
             isAdmin={this.props.userStatus.isAdmin}
             username={this.props.userStatus.userName}
             location={this.props.location}
+            isPatient={this.props.userStatus && !this.props.userStatus.isAdmin}
           />
           <div className={childrenClassName}>
             {childrenWithProps}
           </div>
-          <Footer isAdmin={this.props.userStatus.isAdmin} />
+          <Footer isAdmin={this.props.userStatus.isAdmin} isPatient={this.props.userStatus && !this.props.userStatus.isAdmin} />
         </div>
       </div>
     );

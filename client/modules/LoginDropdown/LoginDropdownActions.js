@@ -17,12 +17,12 @@ export const login = (username, password) => dispatch => {
       password,
     }));
   } else {
-    callApi(`login/${username}/${password}`).then(res => dispatch(setLoginStatus({
+    callApi(`login/${username}/${password}`).then(res => res.account[0] ? dispatch(setLoginStatus({
       isAdmin: false,
-      usernameId: res.account[0].userName,
+      usernameId: res.account[0]._id,
       userName: username,
       password,
-    })));
+    })) : null);
   }
 };
 

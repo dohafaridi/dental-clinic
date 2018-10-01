@@ -32,7 +32,7 @@ export const getAccountByPatientID = (req, res) =>
  * @param res
  */
 export const checkLoginCredential = (req, res) => {
-  Account.find({ userName: req.params.username, password: req.params.password, isActiveAccount: true }).exec(
+  Account.find({ userName: req.params.username.toLowerCase(), password: req.params.password.toLowerCase(), isActiveAccount: true }).exec(
     (err, account) => (err ? res.status(500).send(err) : res.json({ account }))
   );
 };
@@ -50,8 +50,8 @@ export const addAccount = (req, res) => {
 
   const newAccount = new Account(req.body.account);
 
-  newAccount.userName = sanitizeHtml(newAccount.userName);
-  newAccount.password = newAccount.password;
+  newAccount.userName = sanitizeHtml(newAccount.userName).toLowerCase();
+  newAccount.password = newAccount.password.toLowerCase();
 
   newAccount.save(
     (err, saved) =>

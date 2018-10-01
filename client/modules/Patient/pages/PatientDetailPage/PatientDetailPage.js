@@ -16,7 +16,7 @@ const PatientDetailPage = ({ patient, userStatus }) => (
       <Account patient={patient} />
      ) : null}
     <h1 className={styles.PatientDetailPage__fullName}>{patient.firstName} {patient.lastName}</h1>
-    <div className={styles.PatientDetailPage__field}>{patient.sex}</div>
+    <div className={styles.PatientDetailPage__field}>{patient.sex} {patient._id} </div>
     <div className={styles.PatientDetailPage__field}>{getISODate(new Date(patient.birthDay))}</div>
     <div className={styles.PatientDetailPage__field}>{patient.phone}</div>
     <div className={styles.PatientDetailPage__field}>{patient.email}</div>

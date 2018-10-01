@@ -1,6 +1,7 @@
 import {
   ADD_ACCOUNT,
   EDIT_ACCOUNT,
+  SET_ERROR,
 } from './AccountActions';
 
 const initialState = {
@@ -22,6 +23,11 @@ const AccountReducer = (state = initialState, action) => {
     case EDIT_ACCOUNT:
       return {
         data: Object.assign({}, state.data, action.account),
+      };
+
+    case SET_ERROR:
+      return {
+        data: false,
       };
 
     default:
