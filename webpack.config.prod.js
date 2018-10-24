@@ -38,7 +38,7 @@ module.exports = {
     rules: [
       {
         test: /\.s?css$/,
-        exclude: /node_modules/,
+        exclude: /node_modules\/(?!(react-big-calendar)\/).*/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -72,7 +72,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: /node_modules/,
+        include: /node_modules\/(?!(react-big-calendar)\/).*/,
         use: ['style-loader', 'css-loader'],
       },
       {

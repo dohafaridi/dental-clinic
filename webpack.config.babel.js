@@ -23,7 +23,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        exclude: /node_modules/,
+        exclude: /node_modules\/(?!(react-big-calendar)\/).*/,
         use: [
           {
             loader: 'style-loader',
